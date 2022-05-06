@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut" href="./img/icon_set1_n1.png">
+    <link rel="apple-touch-icon" href="./img/icon_set1_n2.png">
+    <!-- 검색 메타 정보 -->
+    <meta name="url" content="https://www.kbstar.com/">
+    <meta name="title" content="KB국민은행">
+    <meta name="description" content="kb국민은행의 기업정보,제품정보,미디어,커뮤니티">
+    <meta name="keywords" content="kb국민은행,이체,펀드,계좌,금융서비스">
+    <!-- 오픈그래프 -->
+    <meta property="og:url" content="https://www.kbstar.com/">
+    <meta property="og:title" content="KB국민은행">
+    <meta property="og:description" content="kb국민은행의 기업정보,제품정보,미디어,커뮤니티">
+    <meta property="og:image" content="./img/logo-square-letter.png">
+    <title>KB국민은행</title>
+    <!-- 기본 플러그인 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- 웹 폰트 모듈 연결 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'Noto Sans KR';
+            src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Nanum Gothic';
+            src: url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@500&display=swap");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+        <!-- 웹 아이콘 연결 -->
+    <!-- XEIcon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- 스타일 초기화 모듈 연결 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <!-- <link rel="stylesheet" href="./css/normalize.css"> -->
+
+    <style>
+
+        #vs { widows: 100%;  overflow: hidden; }
+        .img_box { width : 500%; }
+        .img_box li { float:left; width:20%; position:relative; }
+        .img_box li a { display: block; }
+        .img_box li a img { display: block; width: 100%; height: auto;}
+        .img_box .tit_box { position: absolute; top:50px; left: 50px; padding-left: 40px;
+        text-shadow: 1px 1px 1px #333; padding-left: 40px; color: whitesmoke; z-index:30; }
+       .vs_tit { font-size: 42px; line-height: 1.6; }
+       .vs_com { font-size: 37px; padding-top: 40px;}
+       .btn_group { position:absolute; bottom:0px; left:157px; z-index:40; top: 1060px;}
+       .btn_group button { display:block; width: 80px; height: 80px; float:left; 
+        background-color:rgba(0,0,0,0.6); border:none; outline: none; color:#fff; }
+       .btn_group button i[class*='xi'] { color: #fff; }
+       .btn_group button:hover i[class*='xi'] { cursor:pointer; color:gold; }
+        
+       .grid_box { clear:both; width: 100%; }
+       .grid_wrap { clear:both; width: 100%; }
+       .grid_wrap li { float: left; height: 16.66667vw; background-position: center center ;
+         }
+       .grid_wrap li a { display: block; padding:28px; }
+       .col_tit { padding-top:31px; }
+       
+       .col_tit.w, .col_com.w { color: rgb(255, 255, 255); text-shadow: 1px 1px 1px rgb(0, 0, 0);}
+       .col_com { font-size: 15px; font-weight: 200; padding-top: 20px;}
+       .grid_wrap li.item1 { background-color: rgb(255, 222, 222);}
+       .grid_wrap li.item2 { background-color: rgb(255, 187, 187);}
+       .grid_wrap li.item3 { background-color: rgb(255, 158, 158);} 
+       .grid_wrap li.item4 { background-image: url("./img/watermelon-gdec6993d5_640.jpg"); } 
+       .grid_wrap li.item5 { background-image: url("./img/texture-ge30230f8a_640.jpg "); }
+       .grid_wrap li.item6 { background-image: url("./img/background-gc0ba397cc_640.png");}
+       .arrow { display: block; margin-top: 50px;}
+       .arrow:before{ content: ""; display: block; width:2px; height: 6px; transition: 0.2s;
+                       border-bottom: 2px solid #333; float: left;}
+       .arrow:after { content:""; display:block; width: 30px; height: 8px;
+                      background-image: url("./img/newsletter_arrow_black.png"); float:left; }
+        .grid_wrap li:hover a .arrow:before { width:50px;}
+    
+       .col1 { width:8.33333%; }
+       .col2 { width:16.66667%; }
+       .col3 { width:25%; }
+       .col4 { width:33.33333%; }
+       .col5 { width:41.66666%; }
+       .col6 { width: 50%; }
+         
+        #ft { clear:both; width: 100%; padding-top: 20px; background-color: rgb(255, 249, 231);}
+        .ft_wrap { clear:both; width:1280px; margin:0 auto;}
+        .fnb { float:left; }
+        .fnb a { display:block; float:left; margin:14px; margin-left: 0; 
+        margin-right: 28px; font-size: 12px; }
+        .fnb a:after { content: "|"; padding-left: 28px; }
+        .fnb a:last-child::after { content: "";}
+        
+        .snb { float:right; }
+        .snb ul li { float:left; margin-left: 18px; }
+        .copyright { clear:both; padding-bottom: 28px; font-size:12px; }
+    </style>
+
+</head>
+<body>
+
+
+    <div class="wrap">
+        <header id="hd">
+            <div class="hd_wrap">
+                <!-- (a.logo>img)+(nav#gnb>ul>li*5>span+(ul.sub>li*4>a{메뉴$}))+(p#tnb>a{상단$}*3) -->
+                <a href="index.html" class="logo">
+                    <img src="	https://oimg1.kbstar.com/img/ocommon/2015/kb_logo.png" alt="로고이미지입니다.">
+                </a>
+                <nav id="gnb">
+                    <ul>
+                        <li>
+                            <span>KB와 함께</span>
+                            <ul class="sub">
+                                <li><a href="company.html#page1">은행소개</a></li>
+                                <li><a href="company.html#page2">지점안내</a></li>
+                                <li><a href="company.html#page3">고객센터</a></li>
+                                <li><a href="company.html#page4">KB정보광장</a></li>
+                                <li><a href="company.html#page5">이벤트</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>특화서비스</span>
+                            <ul class="sub">
+                                <li><a href="company1.html#page1">주택청약</a></li>
+                                <li><a href="company1.html#page2">국민주택채권</a></li>
+                                <li><a href="company1.html#page3">주택도시기금</a></li>
+                                <li><a href="company1.html#page4">스마트금융서비스</a></li>
+                                <li><a href="company1.html#page5">Liiv M</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>금융서비스</span>
+                            <ul class="sub">
+                                <li><a href="company2.html#page1">에스크로이체</a></li>
+                                <li><a href="company2.html#page2">보안센터</a></li>
+                                <li><a href="company2.html#page3">인증센터(개인)</a></li>
+                                <li><a href="company2.html#page4">인증센터(기업)</a></li>
+                                <li><a href="company2.html#page5">Star CMS</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>커뮤니티</span>
+                            <ul class="sub">
+                                <li><a href="company3.html#page1">채용정보</a></li>
+                                <li><a href="company3.html#page2">직무소개</a></li>
+                                <li><a href="company3.html#page3">공지사항</a></li>
+                                <li><a href="company3.html#page4">자료실</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>멤버십서비스</span>
+                            <ul class="sub">
+                                <li><a href="company4.html#page1">KB고객우대제도</a></li>
+                                <li><a href="company4.html#page2">GOLD&WISE</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <p id="tnb">
+                    <a href="">로그인</a>
+                    <a href="">사이트맵</a>
+                    <a href="">오시는길</a>
+                </p>
+            </div>
+        </header>
+        <div id="content">
+            <!--figure#vs>ul.img_box>(li*3>a>img+div.tit_box>h2.vs_tit+p.vs_com)+div.btn_group>button.prew_btn+button.next_btn-->
+            <div id="vs">
+                <ul class="img_box">
+                    <li>
+                        <a href="">
+                            <img src="./img/image1.jpg" alt="건물" class="pic">
+                            <div class="tit_box">
+                                <p class="vs_com">가입기간 단 2주 한정 가입 시작!</p>
+                                <h1 class="vs_tit">[KB쿠폰북적금]with요기요</h1>
+                                <p class="vs_com">2022.4.11(월) ~ 4.24(일)</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/image2.jpg" alt="시계" class="pic">
+                            <div class="tit_box">
+                                <h3 class="vs_com">전국 거점지역 72개 지점에서</h3>
+                                <h1 class="vs_tit">저녁 6시까지 영업합니다.</h1>
+                                <p class="vs_com">서두르지 마세요! 두 시간 더 활짝 은행문을 엽니다.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/image3.jpg" alt="1" class="pic">
+                            <div class="tit_box">
+                                <h3 class="vs_com">국민의 믿음에 보답하는,</h3>
+                                <h1 class="vs_tit">든든한 KB국민은행이 되겠습니다</h1>
+                                <p class="vs_com">2021 국가고객만족도(NCSI)1위<br>
+                                    은행권 최다 15회 달성</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/image4.jpg" alt="휴대폰" class="pic">
+                            <div class="tit_box">
+                                <h3 class="vs_com">한번에, 한곳에서, 편리하게</h3>
+                                <h1 class="vs_tit">KB골든라이프X</h1>
+                                <p class="vs_com">KB국민은행에서 맞춤형 콘텐츠와 서비스를 만나보세요.<BR>
+                                #은퇴설계 #여가 문화정보 #건강상담</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./img/image5.jpg" alt="꼬마" class="pic">
+                            <div class="tit_box">
+                                <h2 class="vs_com">늘 곁에 더 가까이</h2>
+                                <h1 class="vs_tit">KB국민은행</h1>
+                                <p class="vs_com">일상에 쉼표가 필요한 순간<BR>
+                                    KB국민은행과 함께 하세요.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <div class="btn_group">
+                        <button class="prev_btn"><i class="xi-arrow-left"></i></button>
+                        <button class="next_btn"><i class="xi-arrow-right"></i></button>
+                    </div> 
+                </ul>
+            </div>
+            <script>
+                $(document).ready(function(){
+                    var wd = $(window).width();
+                    var intv = setInterval(function(){
+                        ani1();
+                    }, 3000);
+                    function ani1(){
+                        $(".img_box").not(":animated").animate({"margin-left":-wd+"px"}, 600, function(){
+                            $(".img_box li").eq(0).appendTo($(".img_box"));
+                            $(".img_box").css("margin-left","0px");
+                        });
+                    }
+                    function ani2(){
+                        $(".img_box").css("margin-left",-wd+"px");
+                        $(".img_box li:last-child").prependTo($(".img_box"));
+                        $(".img_box").not(":animated").animate({"margin-left":"0px"}, 600);
+                    }
+                    $(".btn_group .next_btn").click(function(){
+                        clearInterval(intv);
+                        ani1();
+                        intv = setInterval(function(){ ani1(); }, 3000);
+                    });
+                    $(".btn_group .prev_btn").click(function(){
+                        clearInterval(intv);
+                        ani2();
+                        intv = setInterval(function(){ ani1(); }, 3000);
+                    });
+                    $(window).resize(function(){
+                        wd = $(window).width();
+                    });
+                });    
+                </script>
+
+            <!--div.grid_box>ul>li.col*3>a>h3.col_tit+p.col_com+span.arrow-->
+            <div class="grid_box">
+                <ul class="grid_wrap">
+                    <li class="col2 item1">
+                        <a href="">
+                            <h3 class="col_tit">이동통신서비스 Liiv M</h3>
+                            <p class="col_com">KB국민은행의 혁신금융서비스로<br>제공하는 이동통신서비스</p>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="col2 item2">
+                        <a href="">
+                            <h3 class="col_tit">KB환전서비스</h3>
+                            <p class="col_com">최대 90%까지 환율우대 받고
+                                <br>인터넷으로 편하게 환전 하세요</p>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="col2 item3">
+                        <a href="">
+                            <h3 class="col_tit">KBOTsam(케이봇쌤)</h3>
+                            <p class="col_com">로봇과 인간이 함께 추천하는<br>최적의 포트폴리오</p>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="col2 item4">
+                        <a href="">
+                            <h3 class="col_tit w">KB Young Youth 적금</h3>
+                            <p class="col_com w">나와 내아이를 위한 상품
+                                <br>다양한 부가서비스까지 한가득</p>
+                            
+                        </a>
+                    </li>
+                    <li class="col2 item5">
+                        <a href="">
+                            <h3 class="col_tit w">KB Star 정기예금</h3>
+                            <p class="col_com w">Digital KB의 대표 정기예금
+                                <br>알아서 자동재예치/자동해지</p>
+                            
+                        </a>
+                    </li>
+                    <li class="col2 item6">
+                        <a href="">
+                            <h3 class="col_tit w">KB마이핏통장</h3>
+                            <p class="col_com w">높은 이율! 수수료 혜택!
+                                <br>목적별 자금관리를 통장 하나로!</p>
+                            
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer id="ft">
+            <!--div.ft_wrap>(nav.fnb>a*6)+(nav.snb>ul>li*3>a)+(p.copyright)-->
+            <div class="ft_wrap">
+                <nav class="fnb">
+                    <a href="">이용상담</a>
+                    <a href="">보안프로그램</a>
+                    <a href="">사고신고</a>
+                    <a href="">보호금융상품등록부</a>
+                    <a href="">전자민원접수</a>
+                    <a href="">개인정보처리방침</a>
+                </nav>
+                <nav class="snb">
+                    <ul>
+                        <li class="sns1">
+                            <a href="" title="페이스북"><i class="xi-facebook-official"></i></a>
+                        </li>
+                        <li class="sns2">
+                            <a href="" title="유튜브"><i class="xi-youtube-play"></i></a>
+                        </li>
+                        <li class="sns3">
+                            <a href="" title="네이버포스트"><i class="xi-naver-square"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright">Copyright KB Kookmin Bank. All Rights Reserved. 대표번호 : 1588-9999
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

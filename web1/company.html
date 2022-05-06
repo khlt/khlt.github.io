@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <link rel="apple-touch-icon" href="./img/favicon.ico">
+    <!-- 검색(메타) 정보 -->
+    <meta name="url" content="https://www.pfizer.co.kr">
+    <meta name="title" content="한국 화이자제약">
+    <meta name="description" content="한국 화이자제약 기업정보,제품정보,사회공헌,연구개발">
+    <meta name="keywords" content="한국 화이자제약">
+    <!-- 오픈 그래프 -->
+    <meta property="og:url" content="https://www.pfizer.co.kr/">
+    <meta property="og:title" content="한국 화이자제약">
+    <meta property="og:description" content="한국 화이자제약의 기업정보,제품정보,사회공헌,연구개발">
+    <meta property="og:image" content="./img/logo.png">
+    <title>한국 화이자 제약</title>
+    <!-- 기본 플러그인 연결 -->
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- 웹 폰트/폰트 모듈 연결 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+    @font-face {
+        font-family: 'scB';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    } 
+    @font-face {
+        font-family: 'ROKAF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSlabSerifBold.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }   
+    .breat { padding-top: 7px;}
+    #page2{ height:2600px}
+    #page4{ height: 1500px;}
+    #page1 p,#page4 li { line-height: 2em;}
+    #page4 li img { padding-bottom: 30px;}
+    #page5 p ,#page3 p{ line-height: 2em;}
+    #page1 .tit_box, #page4 .tit_box { color:#5b5b5b; text-shadow:1px 1px 1px #fff;}
+    .page_wrap{padding-top: 70px; padding-bottom: 150px;  }
+    .page_wrap table { width: 1280px;}
+    .p_content {padding-bottom: 20px ; padding-left: 20px; color: #5b5b5b;}
+    .page_wrap table tr { padding-top: 15px; border-bottom: solid 1px #f26649; display : block; }
+    .year p {  width: 80px; padding : 5px 0; border: solid 1px #f26649; text-align: center; color: #000000; display: inline-block;
+    margin-bottom: 1em;}
+    
+    .t_wrap { clear:both; width: 100%; display: block;}
+    .grid_item {float:left; margin-left: auto; margin-left: 200px; margin-top: 70px;}
+    .grid_item ul li { float: right;} 
+    .grid_item img {display: block; align-items: center; margin: 0 auto 0 auto; }
+    </style>
+    <!-- 웹 아이콘 연결 -->
+    <!-- XEIcon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- 스타일 초기화 모듈 연결 -->
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/sub_common.css">
+
+    </head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <div class="hd_wrap">
+                <a href="index.html" class="logo">
+                    <img src="./img/942d1d16b116fad649712dbb5a865728 (1).png" alt="로고">
+                </a>
+                <nav id="gnb">
+                    <ul>
+                        <li>
+                            <span>회사소개</span>
+                            <ul class="sub">
+                                <li><a href="company.html#page1">기업소개</a></li>
+                                <li><a href="company.html#page2">연혁</a></li>
+                                <li><a href="company.html#page3">비전 및 미션</a></li>
+                                <li><a href="company.html#page4">핵심가치</a></li>
+                                <li><a href="company.html#page5">윤리경영</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>연구개발</span>
+                            <ul class="sub">
+                                <li><a href="development.html#page1">화이자제약</a></li>
+                                <li><a href="development.html#page2">연도별 활동</a></li>
+                                <li><a href="development.html#page3">성과</a></li>
+                                <li><a href="development.html#page4">앞으로의 방향</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>제품정보</span>
+                        </li>
+                        <li>
+                            <span>사회공헌</span>
+                            <ul class="sub">
+                                <li><a href="contribute.html#page1">화이자 사랑의 장학금</a></li>
+                                <li><a href="contribute.html#page2">환자 지원 활동</a></li>
+                                <li><a href="contribute.html#page3">의학 연구 지원</a></li>
+                                <li><a href="contribute.html#page4">지역사회 기여</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span>화이자소식</span>
+                        </li>
+                    </ul>
+                </nav>
+                <p id="tnb">
+                    <a href="">로그인</a>
+                    <a href="">사이트맵</a>
+                    <a href="">오시는길</a>
+                </p>
+            </div>
+        </header>
+        <div id="content">
+            <div class="content_wrap">
+                <section class="page" id="page1">
+                    <figure class="sub_ban" id="house">
+                        <img src="./img/banner-1359594279390879-554972.jpg" alt="기업소개">
+                        
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index.html" class="home">HOME</a>
+                                </li>
+                                <li class="item2">회사소개</li>
+                                <li class="item3">
+                                    <select name="sel" id="sel1" class="sel">
+                                        <option value="company.html#page1" selected>기업소개</option>
+                                        <option value="company.html#page2">연혁</option>
+                                        <option value="company.html#page3">비전 및 미션</option>
+                                        <option value="company.html#page4">핵심가치</option>
+                                        <option value="company.html#page5">윤리경영</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page_con">
+                        <div class="page_wrap">
+                            <h2 class="sub_tit">기업 소개</h2><br>
+                            <p class="sub_com">한국화이자제약은 국내 제약업계를 선도하며 지역 사회 발전에 기여하기 위해 끊임없이 노력하고 있습니다.</p><br>
+                            <p>화이자의 한국 법인인 한국화이자제약은 1969년 설립 이후 선진화된 연구개발 실적과 첨단 기술을 바탕으로 '환자들의 삶을 변화시키는 혁신(Breakthroughs that Change Patients' Lives)'이라는 기업 목표를
+                            <br>실현하기 위해 혁신적인 치료제와 백신 분야에서 우수한 제품을 제공하고 있으며, 이를 통해 국민건강 증진 및 국내 의약업계 발전에 기여하고 있습니다.<br>
+                            나아가 한국화이자제약은 책임감 있는 기업시민으로서 '지역사회 발전 기여'를 기업의 중요한 가치로 삼고 다양한 사회공헌 프로그램을 지속적으로 진행하고 있습니다.<br>
+                            한국화이자제약은 '책임 있는 기업 시민'으로 나아가기 위한 중요 가치 중 하나로 '정직'을 내세우고 있으며 직원 모두는 법적, 윤리적으로 투명한 경영을 위해 노력하고 있습니다.<br>
+                            더불어 회사 최고의 자산은 '사람'이라는 생각을 바탕으로 회사가 추구하는 가치를 공유할 수 있는 인재를 등용, 함께 성장 발전하고자 노력하고 있습니다.</p><br>
+                            <p class="sub_col">연구개발을 통한 의학 발전에 기여</p><br>
+                            <p>한국화이자제약은 국내 시장에 혁신적인 신약을 공급하여 환자와 한국 국민이 보다 건강한 삶을 누릴 수 있도록 노력해왔으며, 다양한 연구개발 프로그램을 통한 기초 연구 협력 및 R&D 기술 정보 교류를<br>
+                            다각적으로 진행해 국내 연구개발 인력 양성과 국내 임상 인프라 강화에 기여하고 있습니다.</p><br>
+                            <p class="sub_col">책임감 있는 기업시민으로서 지역사회 발전에 기여</p><br>
+                            <p>한국화이자제약은 누구나 더불어 건강하고 행복한 삶을 누릴 수 있는 사회 구현을 목표로 다양한 사회공헌 프로그램을 운영, ‘지역 사회 기여’라는 회사의 핵심가치를 실천하고 있습니다.<br>
+                            이와 같은 사회 공헌 활동을 통해 한국 사회가 추구하는 가치를 공유하고 그 책임을 나누고자 끊임없이 노력하고 있습니다.</p><br>
+                            <p class="sub_col">일하기 좋은 기업, 한국화이자제약</p><br>
+                            <p>한국화이자제약은 직원들이 회사의 핵심 자산이고 회사의 발전은 우수한 인재에 대한 투자를 통해 이루어진다고 믿고 있으며, 자기 개발에 적극적인 인재를 발굴 및 육성하고 있습니다.<br>
+                            또한, 남녀기회균등과 평등한 고용 기회를 제공하고 일∙ 가정 균형을 위한 가족 친화적인 직장 환경을 조성하는 데에 다양한 노력을 기울이고 있습니다.<br>
+                            그 결과, 2009, 2015, 2020년에 UNICEF 엄마에게 친근한 일터, 2011년에는 남녀고용평등 우수기업 대통령 표창, 2015년에는 Job Planet의 일하기 좋은 한국기업으로 선정, 2020년에는 여성가족부의<br>
+                            가족친화 인증을 받은 바 있습니다. 이 외에도 KOR D&I Group운영을 통한 다양성과 포용의 문화를 조성하여, 모든 직원들이 일하기 좋은 직장으로 만들어 가고 있습니다.</p><br>
+                            <p class="sub_col">회사 경영의 투명한 절차와 엄격한 윤리 기준 적용</p><br>
+                            <p>한국화이자제약은 회사 경영 및 운영 전반에 걸쳐 투명한 절차와 엄격한 윤리기준을 적용하고 있으며, 임직원 모두가 이를 함께 성실히 실천해나가고 있습니다.<br>
+                            ​​​​​​​한국화이자제약은 2005년 ‘투명사회실천협약’에 가입하여 윤리경영을 위한 노력에 앞장서고 있으며 정직한 업무 수행 기준을 준수하고 있습니다.</p>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="page" id="page2">
+                    <figure class="sub_ban" id="house">
+                        <img src="./img/banner-1359594279390879-554972.jpg" alt="연혁">
+
+
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index.html" class="home">HOME</a>
+                                </li>
+                                <li class="item2">회사소개</li>
+                                <li class="item3">
+                                    <select name="sel" id="sel2" class="sel">
+                                        <option value="company.html#page1">기업소개</option>
+                                        <option value="company.html#page2" selected>연혁</option>
+                                        <option value="company.html#page3">비전 및 미션</option>
+                                        <option value="company.html#page4">핵심가치</option>
+                                        <option value="company.html#page5">윤리경영</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page_con">
+                        <div class="page_wrap">
+                                <h2 class="sub_tit">연혁</h2><br>
+                                <p class="sub_tit2">Pfizer in Korea</p>
+                                <table> 
+                                    <tr>
+                                        <td class="year">
+                                            <p>1969</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">화이자와 중앙제약㈜이 합작, 한국화이자로 상호 변경</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>1985</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">생산시설 완비 및 보건사회부로부터 KGMP(우수 의약품 제조 기준) 인가 획득</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>1998</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">화이자 본사, 중앙제약 합작지분 인수 및 ‘한국화이자제약주식회사’로 상호 변경</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>1999</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">대한의학협회와 함께 ‘화이자의학상’ 제정</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2000</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">워너-램버트 인수</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2001</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">화이자 글로벌 연구개발 그룹(PGRD)에서 다국가 임상 연구에 한국 포함</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2002</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">	대표적 사회공헌 프로그램인 ‘화이자 사랑의 병원 그림 축제’ 캠페인 출범
+                                            ​​​​​​​‘화이자 사랑의 장학금’ 출범</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2003</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">파마시아 인수
+                                            ​​​​​​​‘화이자 사랑의 장학금’ 통해 의대 및 일반대학생에게 장학금 전달</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2004</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">전직원이 참여하는 사회공헌 프로그램, ‘화이자 사랑의 나눔장터’ 개최</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2006</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">‘대한의사협회-화이자 국제협력특별공로상’ 제정</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2007</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">
+                                                서울시 중구 회현동 1-11번지 화이자타워로 사옥 이전<br>
+                                                보건복지부, 한국생명공학연구원과 국내 신약 연구개발 공동노력에 대한 양해각서 교환<br>
+                                                ​​​​​​​R&D 전문가 양성 프로그램 ‘R&D 유니버시티’ 시작
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2008</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">
+                                                화이자 아시아 R&D 전략적 제휴 설명회 개최<br>
+                                                생명공학연구원과 새 간암치료제 개발을 위한 공동연구 양해각서 교환<br>
+                                                국가임상시험사업단, 6개 대학병원과 PKPD 교육센터 설립에 대한 양해각서 교환<br>
+                                                국가임상시험사업단, 4개 대학병원과 CRS에 대한 양해각서 교환<br>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2009</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">	
+                                                한국화이자제약 대표이사, 이동수 전 마케팅 전무 선임<br>
+                                                화이자-생명공학연구원 바이오신약 공동 개발 양해각서 교환<br>
+                                                대구시 및 대구지역 병원단과 대구시 의료산업 발전을 위한 양해각서 교환<br>
+                                                한국화이자제약, 유니세프 주관 ‘2009 엄마에게 친근한 일터’ 단독 선정<br>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2010</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">
+                                                한국화이자제약, 한국와이어스와 통합 운영 선포<br>
+                                                한국화이자제약-한국여자의사회-어린이재단 조손가정 행복만들기 캠페인 협약<br>
+                                                대표적 사회공헌 프로그램인 ‘조손가정 행복만들기’ 캠페인 출범
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2011</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">  	
+                                                한국화이자제약 이동수 대표이사 사장, KRPIA 신임 회장으로 선출<br>
+                                                한국화이자제약 고용노동부 선정 ‘남녀고용평등 우수기업’ 대통령 표창<br>
+                                                한국화이자제약 사회복지부문 서울시장 유공표창<br>
+                                                고용노동부 산하 산업안전공단 ‘근로자 건강증진활동 인증패’ 수상<br>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2012</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">
+                                                한국화이자제약, 국내 4개 병원과 INSPIRE에 관한 양해각서 체결<br>
+                                                ​​​​​​​한국화이자제약-한국와이어스 통합 완료
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2013</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">
+                                                이동수 대표이사 사장, 보건복지부 대통령 표창 수상<br>
+                                                다채널 정보제공 서비스 ‘마이화이자(My Pfizer)’ 도입<br>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2015</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">	
+                                                화이자제약-호스피라 인수 합병<br>
+                                                한국화이자제약, 유니세프 한국위원회 주관 ‘2015 엄마에게 친근한 일터’ 재임명<br>
+                                                한국화이자제약, 오동욱 대표이사 선임<br>
+                                                한국화이자제약, 잡플래닛과 포춘 코리아가 주관하는 ‘2015 일하기 좋은 한국 기업’ 시상식에서 종합 부문 우수상, 여성이 일하기 좋은 기업 최우수상, 경영진<br>
+                                                우수상 수상(3관왕 달성)br
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2016</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">
+                                                행정자치부 주관 '2016 대한민국자원봉사대상 – 국무총리상'<br>
+                                                식품의약품안전처&한국경제TV 주관 '2016 오송신약대상 – 윤리경영부문상'<br>
+                                                중앙일보 포브스코리아 주관 '2016 코리아 헬스케어 랭킹'의 '해외 제약사' 부문 선정<br>
+                                                ​​​​​​​'헬시 에이징 캠페인'의 보다 넓은 활성화를 위해 한국헬프에이지와의 양해각서 체결
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2017</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">코리아헤럴드 주관 '2017 대한민국 보건의료대상 헤럴드경제 대표이사상' 수상</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2019</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">	
+                                                한국화이자 법인 재편: Biopharmaceuticals Group 사업부문<br>
+                                                한국화이자제약(주)(대표이사: 오동욱) Upjohn 사업부문<br>
+                                                한국화이자업존(주) (대표이사: 이혜영)<br>
+                                                한국화이자 창립 50주년<br>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="year">
+                                            <p>2020</p>
+                                        </td>
+                                        <td>
+                                            <p class="p_content">	
+                                                한국화이자업존 글로벌 'Viatris'㈜(Viatris Inc.) 소속으로 변경<br>
+                                                한국화이자제약, 여성가족부 주관 ‘가족친화기업’ 인증<br>
+                                                한국화이자제약, 유니세프(UNICEF) 주관 ‘엄마에게 친근한 일터’ 재 인증 
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                </section>
+                <section class="page" id="page3">
+                    <figure class="sub_ban"id="house">
+                        <img src="./img/banner-1359594279390879-554972.jpg" alt="비전 및 미션">
+ 
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index.html" class="home">HOME</a>
+                                </li>
+                                <li class="item2">회사소개</li>
+                                <li class="item3">
+                                    <select name="sel" id="sel3" class="sel">
+                                        <option value="company.html#page1">기업소개</option>
+                                        <option value="company.html#page2">연혁</option>
+                                        <option value="company.html#page3" selected>비전 및 미션</option>
+                                        <option value="company.html#page4">핵심가치</option>
+                                        <option value="company.html#page5">윤리경영</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page_con">
+                        <div class="page_wrap">
+                                <h2 class="sub_tit">비전 및 미션</h2><br>
+                                <p class="sub_tit2">Breakthroughs that Change Patients' Lives</p><br>
+                                <p>​​​​​​​한국화이자제약은 '환자들의 삶을 변화시키는 혁신(Breakthroughs that Change Patients' Lives)' 이라는 기업 목표를 실현하기 위해 아래와 같은 주요 미션과 기업 가치를 세워 실천해 나아가고 있습니다.</p><br>
+                                <p class="sub_col">기업 미션 (OUR BOLD MOVES)</p><br>
+                                <p class="sub_col">Unleash the Power of Our people</p>
+                                <p>​​​​​​​우리는 인재의 잠재력을 이끌어내어 최고의 리더를 육성하는 회사가 될 것입니다.
+                                ​​​​​​​우리는 효율적이고 의미있는 업무 환경을 만들어 나갈 것이며, 직원의 리더십과 성과를 드높이고 함께 나눌 수 있는 문화를 잃지 않을 것입니다.<br>
+                                이를 바탕으로 한국화이자제약은 모두에게 일하기 좋은 기업을 추구합니다.</p><br>
+                                <p class="sub_col">Deliver First-in-Class Science</p>
+                                <p>우리는 항상 환자의 입장에서 생각합니다. 끊임없는 연구 개발로 혁신 성공률을 높여 환자들이 필요한 신약을 빠르게 공급하고, 개발하고, 이를 바탕으로 제약업계를 선도하고 있습니다.</p><br>
+                                <p class="sub_col">Transform Our Go-to-Market Model</p>
+                                <p>​​​​​​​우리는 Go-to-Market 전략을 새롭게 세워 새로운 Payer Partnership을 통해 치료 접근성을 강화할 것이며, 환자의 치료 비용 부담에 대한 과제를 풀어나갈 것입니다.</p><br>
+                                <p class="sub_col">Win the Digital Race in Pharma</p>
+                                <p>​​​​​​​우리는 디지털 기반의 신약 후보물질 탐색 및 개발을 통해 R&D 속도 및 편의성을 향상하며, 긍정적인 치료 결과와 환자 경험을 위해 노력할 것입니다.</p><br>
+                                <p class="sub_col">Lead the Conversation</p>
+                                <p>​​​​​​​우리는 제약 업계에서 가장 환자중심적인 기업(Patient Centric)으로 자리매김할 것이며, 혁신과 환자를 중심에 둔 정책을 추진해 나아갈 것입니다.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="page" id="page4">
+                    <figure class="sub_ban"id="house">
+                        <img src="./img/banner-1359594279390879-554972.jpg" alt="핵심가치">
+
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                        <div class="breat">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index.html" class="home">HOME</a>
+                                </li>
+                                <li class="item2">회사소개</li>
+                                <li class="item3">
+                                    <select name="sel" id="sel3" class="sel">
+                                        <option value="company.html#page1">기업소개</option>
+                                        <option value="company.html#page2">연혁</option>
+                                        <option value="company.html#page3">비전 및 미션</option>
+                                        <option value="company.html#page4" selected>핵심가치</option>
+                                        <option value="company.html#page5">윤리경영</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="page_con">
+            
+                        <div class="page_wrap">
+                            <h2 class="sub_tit">핵심가치</h2><br>
+                            <p>전 세계 화이자제약 직원들은 <strong style="color: red;">용기(Courage), 탁월함(Excellence), 형평성(Equity), 기쁨(Joy)</strong> 등 4 가지의 가치를 추구하고 있습니다.</p>
+                            <div class="t_wrap">
+                                <div class="grid_item">
+                                    <ul>
+                                        <li>
+                                            <img src="./img/Courage1-1266344913669950-592474.png" alt="">
+                                            혁신은 어려움의 불확실성을 직면했을 때<br>
+                                            기존의 관습에 도전하는 것으로부터 시작됩니다. <br>
+                                            이는 크게 생각하고, 목소리를 내며, <br>
+                                            결단력을 가질 때 이루어질 수 있습니다.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="grid_item">
+                                    <ul>
+                                        <li>
+                                            <img src="./img/Excellence1-1266390336138652-592475.png" alt="">
+                                            환자의 삶을 변화시키기 위해서 <br>
+                                            우리는 함께 최선의 퍼포먼스를 보여야 합니다.<br>
+                                            이는 중요한 일에 집중하고, 자신의 역할에 대해 논의하고, <br>
+                                            성과를 측정할 때 이루어질 수 있습니다.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="grid_item">
+                                    <ul>
+                                        <li>
+                                            <img src="./img/Equity1-1266442341815542-592477.png" alt="">
+                                            우리 모두 보여지고, 의견에 귀 기울이며,<br>
+                                            돌봄 받을 자격이 있습니다. <br>
+                                            이는 우리가 포용력과 진정성을 갖고 헬스케어의 <br>
+                                            불균형을 줄여나갈 때 이루어질 수 있습니다.
+                                        </li>
+                                    </ul>
+                                </div> 
+                                <div class="grid_item">   
+                                    <ul>
+                                        <li>
+                                            <img src="./img/Joy1-1266487059277479-592478.png" alt="">
+                                            우리는 맡은 일에 최선을 다하며, <br>
+                                            또 일에서 우리 자신을 찾습니다. <br>
+                                            본인이 하는 일에 대해 자부심을 갖고 서로를 인정하며 <br>
+                                            즐겁게 임할 때, 우리는 기쁨을 찾을 수 있습니다.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="page" id="page5">
+                    <figure class="sub_ban" id="house">
+                        <img src="./img/banner-1359594279390879-554972.jpg" alt="윤리경영">
+                    </figure>
+                    <div class="bread_box">
+                        <div class="bread_wrap">
+                            <ul class="bread">
+                                <li class="item1">
+                                    <a href="index.html" class="home">HOME</a>
+                                </li>
+                                <li class="item2">회사소개</li>
+                                <li class="item3">
+                                    <select name="sel" id="se5" class="sel">
+                                        <option value="company.html#page1">기업소개</option>
+                                        <option value="company.html#page2">연혁</option>
+                                        <option value="company.html#page3">비전 및 미션</option>
+                                        <option value="company.html#page4">핵심가치</option>
+                                        <option value="company.html#page5" selected>윤리경영</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page_con">
+                        <div class="page_wrap">
+                            <h2 class="sub_tit">윤리경영</h2><br>
+                            <p class="sub_com">정직은 기업의 핵심가치 중 하나로 지역사회 발전에 있어 믿을 수 있는 파트너가 되고자 하는 회사의 신뢰 기반입니다.</p><br>
+                            <p>한국화이자제약은 회사 경영 및 운영 전반에 걸쳐 투명한 절차와 엄격한 윤리 기준을 적용하고 있으며,
+                                 모든 직원과 함께 이를 성실히 실천하고 있습니다.<br> 2005년 ‘투명사회실천협약’에 가입하여 윤리경영을
+                                  위한 노력에 앞장서고 있으며, 최근 의료계 전문인을 대상으로 실시한 여론조사에서 공정거래 질서를
+                                   가장 잘 지키는 기업으로<br> 선정되는 등 모범적이고 윤리적인 기업으로 인정받고 있습니다.<br><br>
+
+                                한국화이자제약과 임직원은 회사의 가치, 정책 및 관련 법률을 숙지하고 실천하며 합법적이고 투명한
+                                 비즈니스 활동을 수행합니다. 윤리적인 시장 경쟁을 주도하며 비즈니스<br> 파트너 및 보건의료전문가, 
+                                 환자와 정부, 규제 기관 등과의 관계에서도 도덕적이고 책임감 있게 행동합니다. 이 밖에도 기업시민으로서
+                                  지역 사회 활동에 적극적으로 참여하고<br> 건강한 사회를 만들어 가는 데에 협력하고 있습니다.</p>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <script>
+            $(document).ready(function(){
+                $(".sel").change(function(){
+                    location.href = this.value;
+                });
+            });    
+            </script>
+        </div>
+        <footer id="ft">
+            <div class="ft_wrap">
+                <nav class="fnb">
+                    <a href="">사이트맵</a>
+                    <a href="">글로벌 화이자</a>
+                    <a href="">이용약관</a>
+                    <a href="">개인정보처리방침</a>
+                    <a href="">보안신고센터</a>
+                    <a href="">개인정보보호법교육자료</a>
+                </nav>
+                <nav class="snb">
+                    <ul>
+                        <li class="sns1">
+                            <a href="" title="페이스북"><i class="xi-facebook"></i></a>
+                        </li>
+                        <li class="sns2">
+                            <a href="" title="유튜브"><i class="xi-youtube-play"></i></a>
+                        </li>
+                        <li class="sns3">
+                            <a href="" title="네이버 포스트"><i class="xi-naver"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="copyright">© Pfizer Ltd. 2007-2021 All rights reserved. The products discussed herein may have different labeling in different countries. 
+                    This information – including product information – is intended only for residents of the Republic of Korea.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
