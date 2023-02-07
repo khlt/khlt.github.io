@@ -1,0 +1,66 @@
+@charset 'utf-8';
+
+.contentBox {
+    width: 1100px;
+    margin: 0 auto;
+    min-height: 624px;
+    margin-top: 100px;
+}
+
+.h2Box {
+    background-color: #3d3d4f;
+    padding: 15px 125px 10px;
+    display: inline-block;
+    color: white;
+}
+
+.coverBox {
+    border-top: 2px solid #3d3d4f;
+}
+
+.tableForm {
+    width: 100%;
+}
+
+.imgBox img {
+    width: 250px;
+    height: 200px;
+}
+
+.firstLine td {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid rgb(200, 200, 200);
+    background: #eeeeee;
+}
+
+.tbodyLine td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgb(200, 200, 200);
+}
+
+.priceBox {
+    text-align: right;
+}
+
+.priceBox h2 {
+    padding: 10px;
+}
+
+.buttonBox {
+    text-align: right
+}
+
+.button {
+    padding: 7px 10px 7px 10px;
+    background: #3d3d4f;
+    cursor: pointer;
+    border: 1px solid grey;
+    border-radius: 5px;
+    color: white;
+}
+
+.button:hover {
+    background: rgb(200, 200, 200);
+}
