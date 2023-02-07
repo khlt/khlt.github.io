@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <link rel="stylesheet" href="/css/review.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+  <nav class="navbar1">
+    <div class="nav-container">
+      <div class="navbar-logo">
+        <a href="/"><img src="/images/main/main_logo.png" alt="서울로고" /></a>
+
+      </div>
+      <ul class="navbar-menu">
+        <li class="shop">
+          <a href="/goods.html">굿즈샵
+            <i class="fa-solid fa-caret-down"></i>
+          </a>
+          <div class="sub-header2" onmouseover="on()" onmouseout="off()">
+            <ul class="ul">
+              <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemForm.html">상품
+                  등록</a></li>
+              <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemMng.html">상품
+                  관리</a></li>
+              <li sec:authorize="isAuthenticated()" class="course"><a href="/cartList.html">장바구니</a></li>
+              <li sec:authorize="isAuthenticated()" class="course"><a href="/orderHist.html">구매이력</a></li>
+              <form th:action="@{/}" method="get" class="searchForm">
+                <input name="searchQuery" type="search" placeholder="굿즈샵 검색">
+                <button type="submit" class="button">검색</button>
+              </form>
+            </ul>
+          </div>
+        </li>
+        <li class="course" id="course">
+          <!--  코스헤더-->
+          <a href="/course/courseList.html">둘레길 코스
+            <i class="fa-solid fa-caret-down"></i>
+          </a>
+          <div class="sub-header" onmouseover="on()" onmouseout="off()">
+            <ul class="ul">
+              <li class="course"><a href="/course1.html">1.수락·불암산코스</a></li>
+              <li class="course"><a href="/course1.html">2.용마·아차산코스</a></li>
+              <li class="course"><a href="/course1.html">3.고덕·일자산코스</a></li>
+              <li class="course"><a href="/course1.html">4.대모·우면산코스</a></li>
+              <li class="course"><a href="/course1.html">5.관악·호암산코스</a></li>
+              <li class="course"><a href="/course1.html">6.안양천·한강코스</a></li>
+              <li class="course"><a href="/course1.html">7.봉산·앵봉산코스</a></li>
+              <li class="course"><a href="/course1.html">8.북한·도봉산산코스</a></li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li><a href="/noticeList.html">이용후기</a></li>
+        <li><a href="/boardList.html">공지사항</a></li>
+
+        <a href="/join.html">
+          <li class="icon">
+            <span id="spin" class="icon">회원가입</span>
+            <i class="fa-regular fa-user"></i>
+          </li>
+        </a>
+
+      </ul>
+      <ul class="navbar-icons">
+        <li><a href="#"><i class="fa-brands fa-facebook n1"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-instagram n1"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-twitter n1"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <style>
+    .form-group {
+      width: 1300px;
+      text-align: center;
+    }
+  </style>
+  <div class="image-box">
+
+  </div>
+  <div class="h1-wrap">
+    <h1 class="h1">이용후기 등록 페이지</h1>
+  </div>
+
+  <form th:action="@{/notice/register}" th:method="post">
+    <div class="form-group">
+      <label for="title-text">사진 내용</label>
+      <input type="text" id="title-text" class="form-control" name="title" placeholder="내용을 입력하세요.">
+    </div>
+
+    <div class="form-group fileForm">
+      <label for="fileInput">이미지 첨부</label>
+      <div class="custom-file">
+        <input type="file" class="custom-file-input files" id="fileInput" multiple>
+        <label class="custom-file-label" data-browse="Browse"></label>
+      </div>
+    </div>
+
+    <div class="box">
+
+    </div>
+
+    <style>
+      .uploadResult {
+        width: 100%;
+        background-color: gasinboro;
+        margin-top: 10px;
+      }
+
+      .uploadResult ul {
+        display: flex;
+        flex-flow: row;
+        justify-content: center;
+        align-items: center;
+        vertical-align: top;
+        overflow: auto;
+      }
+
+      .uploadResult ul li {
+        list-style: none;
+        padding: 10px;
+        margin-left: 2em;
+      }
+
+      .uploadResult ul li img {
+        width: 200px;
+      }
+
+      .reviewList {}
+    </style>
+
+    <div class="uploadResult">
+      <ul>
+
+      </ul>
+    </div>
+    <div class="button-box">
+      <button type="submit" class="btn btn-primary" id="button">글 등록</button>
+    </div>
+  </form>
+
+  <script>
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    $(function () {
+      $(document).ajaxSend(function (e, xhr, options) {
+        xhr.setRequestHeader(header, token);
+      });
+    });
+
+
+
+
+
+
+
+    $(document).ready(function (e) {
+
+      var regex = new RegExp("(.*?)\.(exe|sh|zip|alz|tiff)$");
+      var maxSize = 10485760; //10MB
+
+      function checkExtension(fileName, fileSize) {
+
+        if (fileSize >= maxSize) {
+          alert("파일 사이즈 초과");
+          return false;
+        }
+
+        if (regex.test(fileName)) {
+          alert("해당 종류의 파일은 업로드할 수 없습니다.");
+          return false;
+        }
+        return true;
+      }
+
+      $(".custom-file-input").on("change", function () {
+
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+
+        var formData = new FormData();
+
+        var inputFile = $(this);
+
+        var files = inputFile[0].files;
+
+        var appended = false;
+
+        for (var i = 0; i < files.length; i++) {
+
+          if (!checkExtension(files[i].name, files[i].size)) {
+            return false;
+          }
+
+          console.log(files[i]);
+          formData.append("uploadFiles", files[i]);
+          appended = true;
+        }
+
+        //upload를 하지 않는다.
+        if (!appended) { return; }
+
+        for (var value of formData.values()) {
+          console.log(value);
+        }
+
+        //실제 업로드 부분
+        //upload ajax
+        $.ajax({
+          url: '/uploadAjax',
+          processData: false,
+          contentType: false,
+          data: formData,
+          type: 'POST',
+          dataType: 'json',
+          success: function (result) {
+            console.log(result);
+            showResult(result);
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+          }
+        }); //$.ajax
+      }); //end change event
+
+
+      function showResult(uploadResultArr) {
+
+        var uploadUL = $(".uploadResult ul");
+
+        var str = "";
+
+        $(uploadResultArr).each(function (i, obj) {
+
+          str += "<li data-name='" + obj.fileName + "' data-path='" + obj.folderPath + "' data-uuid='" + obj.uuid + "'>";
+          str + " <div>";
+          str += "<button type='button' data-file=\'" + obj.imageURL + "\' "
+          str += "class='btn-warning btn-sm'>X</button><br>";
+          str += "<img src='/display?fileName=" + obj.thumbnailURL + "'>";
+          str += "</div>";
+          str + "</li>";
+        });
+
+        uploadUL.append(str);
+      }
+
+      $(".uploadResult ").on("click", "li button", function (e) {
+
+        console.log("delete file");
+
+        var targetFile = $(this).data("file");
+
+        var targetLi = $(this).closest("li");
+
+        $.ajax({
+          url: '/removeFile',
+          data: { fileName: targetFile },
+          dataType: 'text',
+          type: 'POST',
+          success: function (result) {
+            alert(result);
+
+            targetLi.remove();
+          }
+        }); //$.ajax
+      });
+
+
+      //prevent submit
+      $(".btn-primary").on("click", function (e) {
+        e.preventDefault();
+
+        var str = "";
+
+        $(".uploadResult li").each(function (i, obj) {
+          var target = $(obj);
+
+          str += "<input type='hidden' name='imageDTOList[" + i + "].imgName' value='" + target.data('name') + "'>";
+
+          str += "<input type='hidden' name='imageDTOList[" + i + "].path' value='" + target.data('path') + "'>";
+
+          str += "<input type='hidden' name='imageDTOList[" + i + "].uuid' value='" + target.data('uuid') + "'>";
+
+        });
+
+        //태그들이 추가된 것을 확인한 후에 comment를 제거
+        $(".box").html(str);
+
+        $("form").submit();
+
+      });
+
+
+
+    }); //document ready
+
+
+
+  </script>
+  <div class="footerWrap">
+    <footer class="footer-container">
+      <div class="item">
+      </div>
+      <div class="item">
+        <p>Designed by a month's life</p>
+      </div>
+      <div class="item sns">
+
+      </div>
+
+      <script type="text/javascript" src="/js/common.js"></script>
+    </footer>
+  </div>
+</body>

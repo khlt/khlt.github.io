@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--      layout:decorate="~{layouts/layout1}">-->
+
+<!--헤드-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--  파비콘-->
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/main/favicon-16x16.png">
+
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <script src="https://kit.fontawesome.com/f2f40eee94.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/header.css">
+
+
+
+  <link rel="stylesheet" href="/css/goods.css">
+</head>
+<nav class="navbar1">
+  <div class="nav-container">
+    <div class="navbar-logo">
+      <a href="/"><img src="/images/main/main_logo.png" alt="서울로고" /></a>
+
+    </div>
+    <ul class="navbar-menu">
+      <li class="shop">
+        <a href="/goods.html">굿즈샵
+          <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <div class="sub-header2" onmouseover="on()" onmouseout="off()">
+          <ul class="ul">
+            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemForm.html">상품
+                등록</a></li>
+            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemDtl.html">상품
+                관리</a></li>
+            <li sec:authorize="isAuthenticated()" class="course"><a href="/cartList.html">장바구니</a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="course"><a href="/orderHist.html">구매이력</a></li>
+            <form th:action="@{/}" method="get" class="searchForm">
+              <input name="searchQuery" type="search" placeholder="굿즈샵 검색">
+              <button type="submit" class="button">검색</button>
+            </form>
+          </ul>
+        </div>
+      </li>
+      <li class="course" id="course">
+        <!--  코스헤더-->
+        <a href="/courseList.html">둘레길 코스
+          <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <div class="sub-header" onmouseover="on()" onmouseout="off()">
+          <ul class="ul">
+            <li class="course"><a href="/course1.html">1.수락·불암산코스</a></li>
+            <li class="course"><a href="/course1.html">2.용마·아차산코스</a></li>
+            <li class="course"><a href="/course1.html">3.고덕·일자산코스</a></li>
+            <li class="course"><a href="/course1.html">4.대모·우면산코스</a></li>
+            <li class="course"><a href="/course1.html">5.관악·호암산코스</a></li>
+            <li class="course"><a href="/course1.html">6.안양천·한강코스</a></li>
+            <li class="course"><a href="/course1.html">7.봉산·앵봉산코스</a></li>
+            <li class="course"><a href="/course1.html">8.북한·도봉산산코스</a></li>
+          </ul>
+        </div>
+      </li>
+
+
+      <li><a href="/reviewList.html">이용후기</a></li>
+      <li><a href="/boardList.html">공지사항</a></li>
+
+      <a href="join.html">
+        <li class="icon">
+          <span id="spin" class="icon">회원가입</span>
+          <i class="fa-regular fa-user"></i>
+        </li>
+      </a>
+
+    </ul>
+    <ul class="navbar-icons">
+      <li><a href="#"><i class="fa-brands fa-facebook n1"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-instagram n1"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-twitter n1"></i></a></li>
+    </ul>
+  </div>
+</nav>
+
+<div layout:fragment="content">
+  <!--  슬라이드-->
+  <div class="slide slide_wrap">
+    <div class="slide_item item1 fade">
+      <div style="position:absolute; font-size:50px; margin-top: 150px; margin-left: 250px;">
+        <p style=" line-height: 1.16;">제주에서도 가전은 고급스럽게</p>
+        <strong style="font-weight:700; line-height: 1.16;">가전특집 기획전</strong><br />
+        <p style="font-size:24px; margin-top:24px; line-height: 1.45;">실내 공기부터 의류, 침구 관리까지<br />
+          집에서 쓰던 가전 그대로</p>
+      </div>
+      <a href="#"><img src="../images/goods/shopshop1.png" alt="슬라이드사진" /></a>
+    </div>
+    <div class="slide_item item2 fade"><a href="#">
+        <div style="position:absolute; font-size:50px; margin-top: 150px; margin-left: 250px;">
+          <p style=" line-height: 1.16;">2023 신년 특별 기획전</p>
+          <strong style="font-weight:700; line-height: 1.16;">직영몰 단독 특가 모음</strong><br />
+          <p style="font-size:24px; margin-top:24px; line-height: 1.45;">새해 맞이 특가 상품으로<br />
+            풍성하고 알찬 새해 되세요</p>
+        </div><img src="/images/goods/shopshop2.png" alt="슬라이드사진" />
+      </a></div>
+    <div class="slide_item item3 fade"><a href="#">
+        <div style="position:absolute; font-size:50px; margin-top: 150px; margin-left: 250px;">
+          <p style=" line-height: 1.16;">제주에서도 놓칠 수 없는 운동!</p>
+          <strong style="font-weight:700; line-height: 1.16;">홈트레이닝 기획전</strong><br />
+          <p style="font-size:24px; margin-top:24px; line-height: 1.45;">시간&장소에 구애받지 않는 홈트로<br />
+            2023년엔 다이어트 성공하세요!</p>
+        </div><img src="/images/goods/shopshop3.png" alt="슬라이드사진" />
+      </a></div>
+
+    <div class="slide_prev_button slide_button prev">prev</div>
+    <div class="slide_next_button slide_button next">next</div>
+    <ul class="slide_pagination"></ul>
+  </div>
+
+  <input type="hidden" name="searchQuery" th:value="${itemSearchDto.searchQuery}">
+  <div th:if="${not #strings.isEmpty(itemSearchDto.searchQuery)}">
+    <p th:text="${itemSearchDto.searchQuery} + '검색 결과'"></p>
+  </div>
+  <div class="marginBox"></div>
+  <div class="itemContainer">
+    <div class="item item1">
+      <a th:href="'/item/' +${item.id}">
+        <div class="imgBox">
+          <img src="../images/goods/goods1.jpg" th:alt="${item.itemNm}" height="350">
+        </div>
+        <div class="textBox">
+          <h4>1</h4>
+          <h3>5,000원</h3>
+          <p>맛있는 고구마 튀김입니다.</p>
+        </div>
+      </a>
+    </div>
+    <div class="item item1">
+      <a th:href="'/item/' +${item.id}">
+        <div class="imgBox">
+          <img src="../images/goods/goods8.jpg" th:alt="${item.itemNm}" height="350">
+        </div>
+        <div class="textBox">
+          <h4>2</h4>
+          <h3>20,000원</h3>
+          <p>김밥, 연어, 날치알 초밥 회 SET.</p>
+        </div>
+      </a>
+    </div>
+    <div class="item item1">
+      <a th:href="'/item/' +${item.id}">
+        <div class="imgBox">
+          <img src="../images/goods/goods2.jpg" th:alt="${item.itemNm}" height="350">
+        </div>
+        <div class="textBox">
+          <h4>3</h4>
+          <h3>30,000원</h3>
+          <p>브로컬리와 고구마 양고기.</p>
+        </div>
+      </a>
+    </div>
+    <div class="item item1">
+      <a th:href="'/item/' +${item.id}">
+        <div class="imgBox">
+          <img src="../images/goods/goods3.jpg" th:alt="${item.itemNm}" height="350">
+        </div>
+        <div class="textBox">
+          <h4>4</h4>
+          <h3>10,000원</h3>
+          <p>파프리카 꼬치 3SET.</p>
+        </div>
+      </a>
+    </div>
+    <div class="item item1">
+      <a th:href="'/item/' +${item.id}">
+        <div class="imgBox">
+          <img src="../images/goods/goods4.png" th:alt="${item.itemNm}" height="350">
+        </div>
+        <div class="textBox">
+          <h4>5</h4>
+          <h3>65,000원</h3>
+          <p>컨버스화.</p>
+        </div>
+      </a>
+    </div>
+    <div class="item item1">
+      <a th:href="'/item/' +${item.id}">
+        <div class="imgBox">
+          <img src="../images/goods/goods5.jpg" th:alt="${item.itemNm}" height="350">
+        </div>
+        <div class="textBox">
+          <h4>6</h4>
+          <h3>15,000원</h3>
+          <p>체크무늬 목도리 블루, 오렌지.</p>
+        </div>
+      </a>
+    </div>
+    <div class="item item1">
+      <a th:href="'/item/' +${item.id}">
+        <div class="imgBox">
+          <img src="../images/goods/goods6.jpg" th:alt="${item.itemNm}" height="350">
+        </div>
+        <div class="textBox">
+          <h4>7</h4>
+          <h3>23,000원</h3>
+          <p>목도리 3개</p>
+        </div>
+      </a>
+    </div>
+    <div class="item item1">
+      <a th:href="'/item/' +${item.id}">
+        <div class="imgBox">
+          <img src="../images/goods/goods7.jpg" th:alt="${item.itemNm}" height="350">
+        </div>
+        <div class="textBox">
+          <h4>8</h4>
+          <h3>20,000원</h3>
+          <p>양말 5켤레.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="pageBox"
+    th:with="start=${(items.number/maxPage)*maxPage + 1}, end=(${(items.totalPages == 0) ? 1 : (start + (maxPage - 1) < items.totalPages ? start + (maxPage - 1) : items.totalPages)})">
+    <ul>
+
+      <li th:classappend="${items.number eq 0}?'disabled':''">
+        <a th:href="@{'/' + '?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${items.number-1}}"
+          aria-label='Previous'>
+          <span aria-hidden='true'>Prev</span>
+        </a>
+      </li>
+
+      <li th:each="page: ${#numbers.sequence(start, end)}" th:classappend="${items.number eq page-1}?'active':''">
+        <a th:href="@{'/' +'?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${page-1}}"
+          th:inline="text">1</a>
+      </li>
+
+      <li th:classappend="${items.number+1 ge items.totalPages}?'disabled':''">
+        <a th:href="@{'/' +'?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${items.number+1}}"
+          aria-label='Next'>
+          <span aria-hidden='true'>Next</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+</div>
+
+<!--푸터-->
+<div class="footerWrap">
+  <footer class="footer-container">
+    <div class="item">
+    </div>
+    <div class="item">
+      <p>Designed by a month's life</p>
+    </div>
+    <div class="item sns">
+
+    </div>
+
+    <script type="text/javascript" src="/js/common.js"></script>
+  </footer>
+</div>
+<script src="/js/goods.js"></script>
+
+</html>

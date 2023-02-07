@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/layout1}">
+
+<head>
+  <!--    <meta name="_csrf" th:content="${_csrf.token}"/>-->
+  <!--    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>-->
+  <link rel="stylesheet" href="/css/cartList.css">
+  <!--  파비콘-->
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/main/favicon-16x16.png">
+
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <script src="https://kit.fontawesome.com/f2f40eee94.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/header.css">
+
+
+
+  <link rel="stylesheet" href="/css/goods.css">
+</head>
+
+<nav class="navbar1">
+  <div class="nav-container">
+    <div class="navbar-logo">
+      <a href="/"><img src="/images/main/main_logo.png" alt="서울로고" /></a>
+
+    </div>
+    <ul class="navbar-menu">
+      <li class="shop">
+        <a href="/goods.html">굿즈샵
+          <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <div class="sub-header2" onmouseover="on()" onmouseout="off()">
+          <ul class="ul">
+            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemForm.html">상품
+                등록</a></li>
+            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemMng.html">상품
+                관리</a></li>
+            <li sec:authorize="isAuthenticated()" class="course"><a href="/cartList.html">장바구니</a></li>
+            <li sec:authorize="isAuthenticated()" class="course"><a href="/orderHist.html">구매이력</a></li>
+            <form th:action="@{/}" method="get" class="searchForm">
+              <input name="searchQuery" type="search" placeholder="굿즈샵 검색">
+              <button type="submit" class="button">검색</button>
+            </form>
+          </ul>
+        </div>
+      </li>
+      <li class="course" id="course">
+        <!--  코스헤더-->
+        <a href="/courseList.html">둘레길 코스
+          <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <div class="sub-header" onmouseover="on()" onmouseout="off()">
+          <ul class="ul">
+            <li class="course"><a href="/course1.html">1.수락·불암산코스</a></li>
+            <li class="course"><a href="/course1.html">2.용마·아차산코스</a></li>
+            <li class="course"><a href="/course1.html">3.고덕·일자산코스</a></li>
+            <li class="course"><a href="/course1.html">4.대모·우면산코스</a></li>
+            <li class="course"><a href="/course1.html">5.관악·호암산코스</a></li>
+            <li class="course"><a href="/course1.html">6.안양천·한강코스</a></li>
+            <li class="course"><a href="/course1.html">7.봉산·앵봉산코스</a></li>
+            <li class="course"><a href="/course1.html">8.북한·도봉산산코스</a></li>
+          </ul>
+        </div>
+      </li>
+
+
+      <li><a href="/reviewList.html">이용후기</a></li>
+      <li><a href="/boardList.html">공지사항</a></li>
+
+      <a href="/join.html">
+        <li class="icon">
+          <span id="spin" class="icon">회원가입</span>
+          <i class="fa-regular fa-user"></i>
+        </li>
+      </a>
+
+    </ul>
+    <ul class="navbar-icons">
+      <li><a href="#"><i class="fa-brands fa-facebook n1"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-instagram n1"></i></a></li>
+      <li><a href="#"><i class="fa-brands fa-twitter n1"></i></a></li>
+    </ul>
+  </div>
+</nav>
+<div layout:fragment="content">
+  <div class="contentBox">
+    <div class="h2Box">
+      <h2>
+        장바구니 목록
+      </h2>
+    </div>
+
+    <div class="coverBox">
+      <div class="tableBox">
+        <table class="tableForm">
+          <colgroup>
+            <col width="15%" />
+            <col width="70%" />
+            <col width="15%" />
+          </colgroup>
+          <thead>
+            <tr class="firstLine">
+              <td>
+                <input type="checkbox" id="checkall" onclick="checkAll()"> 전체선택
+              </td>
+              <td>상품정보</td>
+              <td>상품금액</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="cartItem : ${cartItems}" class="tbodyLine">
+              <td>
+                <input type="checkbox" name="cartChkBox" th:value="${cartItem.cartItemId}">선택하기
+              </td>
+              <td>
+                <div class="imgBox" style="border:none;">
+                  <img th:src="${cartItem.imgUrl}" th:alt="${cartItem.itemNm}">
+                </div>
+                <div>
+                  <span th:text="${cartItem.itemNm}"></span>
+                  <div>
+                    <span>
+                      <span th:id="'price_' + ${cartItem.cartItemId}" th:data-price="${cartItem.price}"
+                        th:text="${cartItem.price} + '원'">
+                      </span>
+                      <input type="number" name="count" th:id="'count_' + ${cartItem.cartItemId}"
+                        th:value="${cartItem.count}" min="1" onchange="changeCount(this)">
+                      <button type="button" aria-label="Close">
+                        <span aria-hidden="true" th:data-id="${cartItem.cartItemId}"
+                          onclick="deleteCartItem(this)">&times;</span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span th:id="'totalPrice_' + ${cartItem.cartItemId}" name="totalPrice"
+                  th:text="${cartItem.price * cartItem.count} + '원'">
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="priceBox">
+        <h2>
+          총 주문 금액 : <span id="orderTotalPrice">0원</span>
+        </h2>
+      </div>
+      <div class="buttonBox">
+        <button type="button" onclick="orders()" class="button">주문하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--푸터-->
+<div class="footerWrap">
+  <footer class="footer-container">
+    <div class="item">
+    </div>
+    <div class="item">
+      <p>Designed by a month's life</p>
+    </div>
+    <div class="item sns">
+
+    </div>
+
+    <script type="text/javascript" src="/js/common.js"></script>
+  </footer>
+</div>
+
+</html>

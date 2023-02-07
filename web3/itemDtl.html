@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--      layout:decorate="~{layouts/layout1}">-->
+
+
+<!--    <meta name="_csrf" th:content="${_csrf.token}"/>-->
+<!--    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>-->
+<!--헤드-->
+
+<head>
+    <th:block th:replace="fragments/head :: headFragment"></th:block>
+    <link rel="stylesheet" href="/css/goodsDtl.css">
+    <link rel="stylesheet" href="/css/header.css">
+</head>
+
+<nav class="navbar1">
+    <div class="nav-container">
+        <div class="navbar-logo">
+            <a href="/"><img src="/images/main/main_logo.png" alt="서울로고" /></a>
+
+        </div>
+        <ul class="navbar-menu">
+            <li class="shop">
+                <a href="/goods.html">굿즈샵
+                    <i class="fa-solid fa-caret-down"></i>
+                </a>
+                <div class="sub-header2" onmouseover="on()" onmouseout="off()">
+                    <ul class="ul">
+                        <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemForm.html">상품
+                                등록</a></li>
+                        <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemMng.html">상품
+                                관리</a></li>
+                        <li sec:authorize="isAuthenticated()" class="course"><a href="/cartList.html">장바구니</a></li>
+                        <li sec:authorize="isAuthenticated()" class="course"><a href="/orderHist.html">구매이력</a></li>
+                        <form th:action="@{/}" method="get" class="searchForm">
+                            <input name="searchQuery" type="search" placeholder="굿즈샵 검색">
+                            <button type="submit" class="button">검색</button>
+                        </form>
+                    </ul>
+                </div>
+            </li>
+            <li class="course" id="course">
+                <!--  코스헤더-->
+                <a href="/courseList.html">둘레길 코스
+                    <i class="fa-solid fa-caret-down"></i>
+                </a>
+                <div class="sub-header" onmouseover="on()" onmouseout="off()">
+                    <ul class="ul">
+                        <li class="course"><a href="/course1.html">1.수락·불암산코스</a></li>
+                        <li class="course"><a href="/course1.html">2.용마·아차산코스</a></li>
+                        <li class="course"><a href="/course1.html">3.고덕·일자산코스</a></li>
+                        <li class="course"><a href="/course1.html">4.대모·우면산코스</a></li>
+                        <li class="course"><a href="/course1.html">5.관악·호암산코스</a></li>
+                        <li class="course"><a href="/course1.html">6.안양천·한강코스</a></li>
+                        <li class="course"><a href="/course1.html">7.봉산·앵봉산코스</a></li>
+                        <li class="course"><a href="/course1.html">8.북한·도봉산산코스</a></li>
+                    </ul>
+                </div>
+            </li>
+
+
+            <li><a href="/reviewList.html">이용후기</a></li>
+            <li><a href="/boardList.html">공지사항</a></li>
+
+            <a href="/join.html">
+                <li class="icon">
+                    <span id="spin" class="icon">회원가입</span>
+                    <i class="fa-regular fa-user"></i>
+                </li>
+            </a>
+
+        </ul>
+        <ul class="navbar-icons">
+            <li><a href="#"><i class="fa-brands fa-facebook n1"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram n1"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-twitter n1"></i></a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<div layout:fragment="content">
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+    <input type="hidden" id="itemId" th:value="${item.id}">
+    <div class="billContent">
+        <div class="billContentTop">
+
+            <div class="imgBox">
+                <div class="state">
+                    <span th:if="${item.itemSellStatus == T(com.shop.constant.ItemSellStatus).SELL}">
+                        판매중
+                    </span>
+                    <span th:unless="${item.itemSellStatus == T(com.shop.constant.ItemSellStatus).SELL}">
+                        품절
+                    </span>
+                </div>
+                <div class="imgPlus">
+                    <img th:src="${item.itemImgDtoList[0].imgUrl}" th:alt="${item.itemNm}">
+                </div>
+            </div>
+            <div class="imgBox2">
+                <div th:text="${item.itemNm}" class="goodsName"></div>
+                <div>
+                    <div class="price">
+                        <input type="hidden" th:value="${item.price}" id="price" name="price">
+                        <span th:text="${item.price}"></span>원
+                    </div>
+                    <div>
+                        <div class="quantity">
+                            <span>수량</span>
+                            <input type="number" name="count" id="count" value="1" min="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="bill">
+                    <h5>결제 금액&nbsp:</h5>
+                    <h3 name="totalPrice" id="totalPrice"></h3>
+                </div>
+                <div th:if="${item.itemSellStatus == T(com.shop.constant.ItemSellStatus).SELL}" class="orderBox">
+                    <button type="button" onclick="order()" class="order">주문하기</button>
+                    <button type="button" onclick="addCart()" class="cart">장바구니 담기</button>
+                </div>
+                <div th:unless="${item.itemSellStatus == T(com.shop.constant.ItemSellStatus).SELL}">
+                    <button type="button">품절</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="descriptionBox">
+        <div class="description">
+            <h4>상품 상세 설명</h4>
+        </div>
+        <div class="exclamationMark">
+            <img src="images/exclamationMark.png">
+            <strong>직거래 유도 주의 안내</strong>
+            <br>
+            굿즈샾을 통해 상품문의 등을 활용하여
+            <span>현금결제를 유도하는 경우 사기의 가능성이 있으니 절대 결제하지 마시고</span>
+            <a href="#">굿즈샵 대표번호로 연락 주시기 바랍니다.</a>
+        </div>
+        <div th:each="itemImg : ${item.itemImgDtoList}" class="contentImgBox">
+            <img th:if="${not #strings.isEmpty(itemImg.imgUrl)}" th:src="${itemImg.imgUrl}" width="800">
+        </div>
+        <div class="descriptionContent">
+            <p th:text="${item.itemDetail}"></p>
+        </div>
+    </div>
+
+    <!--    <script src="/js/goodsDtl.js"></script>-->
+    <th:block layout:fragment="script">
+        <script th:inline="javascript">
+            $(document).ready(function () {
+
+                calculateToalPrice();
+
+                $("#count").change(function () {
+                    calculateToalPrice();
+                });
+            });
+
+            function calculateToalPrice() {
+                var count = $("#count").val();
+                var price = $("#price").val();
+                var totalPrice = price * count;
+                $("#totalPrice").html(totalPrice + '원');
+            }
+
+            function order() {
+                // var token = $("meta[name='_csrf']").attr("content");
+                // var header = $("meta[name='_csrf_header']").attr("content");
+
+                var url = "/order";
+                var paramData = {
+                    itemId: $("#itemId").val(),
+                    count: $("#count").val()
+                };
+
+                var param = JSON.stringify(paramData);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json",
+                    data: param,
+                    beforeSend: function (xhr) {
+                        /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                        // xhr.setRequestHeader(header, token);
+                    },
+                    dataType: "json",
+                    cache: false,
+                    success: function (result, status) {
+                        alert("주문이 완료 되었습니다.");
+                        location.href = '/goods';
+                    },
+                    error: function (jqXHR, status, error) {
+
+                        if (jqXHR.status == '401') {
+                            alert('로그인 후 이용해주세요');
+                            location.href = '/members/login';
+                        } else {
+                            alert(jqXHR.responseText);
+                        }
+
+                    }
+                });
+            }
+
+            function addCart() {
+                // var token = $("meta[name='_csrf']").attr("content");
+                // var header = $("meta[name='_csrf_header']").attr("content");
+
+                var url = "/cart";
+                var paramData = {
+                    itemId: $("#itemId").val(),
+                    count: $("#count").val()
+                };
+
+                var param = JSON.stringify(paramData);
+
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json",
+                    data: param,
+                    beforeSend: function (xhr) {
+                        /* 데이터를 전송하기 전에 헤더에 csrf값을 설정 */
+                        // xhr.setRequestHeader(header, token);
+                    },
+                    dataType: "json",
+                    cache: false,
+                    success: function (result, status) {
+                        alert("상품을 장바구니에 담았습니다.");
+                        location.href = '/goods';
+                    },
+                    error: function (jqXHR, status, error) {
+
+                        if (jqXHR.status == '401') {
+                            alert('로그인 후 이용해주세요');
+                            location.href = '/members/login';
+                        } else {
+                            alert(jqXHR.responseText);
+                        }
+
+                    }
+                });
+            }
+
+
+        </script>
+    </th:block>
+</div>
+
+</html>

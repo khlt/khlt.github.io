@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--  파비콘-->
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/main/favicon-16x16.png">
+
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <script src="https://kit.fontawesome.com/f2f40eee94.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/header.css">
+
+  <link rel="stylesheet" href="/css/review.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+  a {
+    color: black;
+    text-decoration: none;
+  }
+</style>
+
+<body>
+  <nav class="navbar1">
+    <div class="nav-container">
+      <div class="navbar-logo">
+        <a href="/"><img src="/images/main/main_logo.png" alt="서울로고" /></a>
+
+      </div>
+      <ul class="navbar-menu">
+        <li class="shop">
+          <a href="/goods.html">굿즈샵
+            <i class="fa-solid fa-caret-down"></i>
+          </a>
+          <div class="sub-header2" onmouseover="on()" onmouseout="off()">
+            <ul class="ul">
+              <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemForm.html">상품
+                  등록</a></li>
+              <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemMng.html">상품
+                  관리</a></li>
+              <li sec:authorize="isAuthenticated()" class="course"><a href="/cartList.html">장바구니</a></li>
+              <li sec:authorize="isAuthenticated()" class="course"><a href="/orderHist.html">구매이력</a></li>
+              <form th:action="@{/}" method="get" class="searchForm">
+                <input name="searchQuery" type="search" placeholder="굿즈샵 검색">
+                <button type="submit" class="button">검색</button>
+              </form>
+            </ul>
+          </div>
+        </li>
+        <li class="course" id="course">
+          <!--  코스헤더-->
+          <a href="/courseList.html">둘레길 코스
+            <i class="fa-solid fa-caret-down"></i>
+          </a>
+          <div class="sub-header" onmouseover="on()" onmouseout="off()">
+            <ul class="ul">
+              <li class="course"><a href="/course1.html">1.수락·불암산코스</a></li>
+              <li class="course"><a href="/course1.html">2.용마·아차산코스</a></li>
+              <li class="course"><a href="/course1.html">3.고덕·일자산코스</a></li>
+              <li class="course"><a href="/course1.html">4.대모·우면산코스</a></li>
+              <li class="course"><a href="/course1.html">5.관악·호암산코스</a></li>
+              <li class="course"><a href="/course1.html">6.안양천·한강코스</a></li>
+              <li class="course"><a href="/course1.html">7.봉산·앵봉산코스</a></li>
+              <li class="course"><a href="/course1.html">8.북한·도봉산산코스</a></li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li><a href="/reviewList.html">이용후기</a></li>
+        <li><a href="/boardList.html">공지사항</a></li>
+
+        <a href="/join.html">
+          <li class="icon">
+            <span id="spin" class="icon">회원가입</span>
+            <i class="fa-regular fa-user"></i>
+          </li>
+        </a>
+
+      </ul>
+      <ul class="navbar-icons">
+        <li><a href="#"><i class="fa-brands fa-facebook n1"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-instagram n1"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-twitter n1"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <style>
+
+  </style>
+  <div class="image-box">
+
+  </div>
+  <div class="h1-wrap">
+
+    <h1>이용후기</h1>
+    <p>방문자분들의 이용후기를 담은 공간입니다.</p>
+    <div class="h1-btn">
+      <span class="span">
+        <a href="reviewRegister.html">
+          <button type="button" class="button">글쓰기</button>
+        </a>
+      </span>
+    </div>
+  </div>
+  <form action="/notice/list" method="get" id="searchForm">
+    <input type="hidden" name="page" value="1">
+  </form>
+
+  <table class="table table-striped container">
+    <thead>
+      <!--      <tr>-->
+      <!--        <th scope="col">#</th>-->
+      <!--        <th scope="col">Picture</th>-->
+      <!--        <th scope="col">Review Count</th>-->
+      <!--        <th scope="col">AVG Rating</th>-->
+      <!--        <th scope="col">Regdate</th>-->
+      <!--      </tr>-->
+    </thead>
+    <tbody class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+      <tr class="col mt">
+
+        <th scope="row">
+
+          1
+
+        </th>
+
+        <td class="card shadow-sm center">
+          <a th:href="@{/notice/read(mno = ${dto.mno}, page= ${result.page})}">
+            <img class="bd-placeholder-img card-img-top" src="../images/notice/notice1.jpg">
+          </a>
+          <div class="card-body">
+            <p class="card-text">즐거웠던 하루</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-muted">
+                <font style="vertical-align: inherit;">1</font>
+              </small>
+              <div class="btn-group">
+                <button type="button" class="button">
+                  <font>수정하기</font>
+                </button>
+                <button type="button" class="button">
+                  <font>삭제하기</font>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+
+
+        <td class="card shadow-sm center mg"><b class="bold">57</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">⭐⭐⭐⭐⭐</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">2023년 2월 18일</b>
+        </td>
+      </tr>
+
+      <tr class="col mt">
+
+        <th scope="row">
+
+          2
+
+        </th>
+
+        <td class="card shadow-sm center">
+          <a th:href="@{/notice/read(mno = ${dto.mno}, page= ${result.page})}">
+            <img class="bd-placeholder-img card-img-top" src="../images/notice/notice2.jpg">
+          </a>
+          <div class="card-body">
+            <p class="card-text">한겨울 나들이 ^^~</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-muted">
+                <font style="vertical-align: inherit;">2</font>
+              </small>
+              <div class="btn-group">
+                <button type="button" class="button">
+                  <font>수정하기</font>
+                </button>
+                <button type="button" class="button">
+                  <font>삭제하기</font>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+
+
+        <td class="card shadow-sm center mg"><b class="bold">53</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">⭐⭐⭐⭐</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">2023년 2월 15일</b>
+        </td>
+      </tr>
+
+      <tr class="col mt">
+
+        <th scope="row">
+
+          3
+
+        </th>
+
+        <td class="card shadow-sm center">
+          <a th:href="@{/notice/read(mno = ${dto.mno}, page= ${result.page})}">
+            <img class="bd-placeholder-img card-img-top" src="../images/notice/notice3.jpg">
+          </a>
+          <div class="card-body">
+            <p class="card-text">가족과 함께</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-muted">
+                <font style="vertical-align: inherit;">3</font>
+              </small>
+              <div class="btn-group">
+                <button type="button" class="button">
+                  <font>수정하기</font>
+                </button>
+                <button type="button" class="button">
+                  <font>삭제하기</font>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+
+
+        <td class="card shadow-sm center mg"><b class="bold">55</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">⭐⭐⭐⭐⭐</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">2023년 2월 12일</b>
+        </td>
+      </tr>
+
+      <tr class="col mt">
+
+        <th scope="row">
+
+          4
+
+        </th>
+
+        <td class="card shadow-sm center">
+          <a th:href="@{/notice/read(mno = ${dto.mno}, page= ${result.page})}">
+            <img class="bd-placeholder-img card-img-top" src="../images/notice/notice4.jpg">
+          </a>
+          <div class="card-body">
+            <p class="card-text">외딴곳에서 친구들과~</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-muted">
+                <font style="vertical-align: inherit;">4</font>
+              </small>
+              <div class="btn-group">
+                <button type="button" class="button">
+                  <font>수정하기</font>
+                </button>
+                <button type="button" class="button">
+                  <font>삭제하기</font>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+
+
+        <td class="card shadow-sm center mg"><b class="bold">91</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">⭐⭐⭐</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">2023년 2월 10일</b>
+        </td>
+      </tr>
+
+      <tr class="col mt">
+
+        <th scope="row">
+
+          5
+
+        </th>
+
+        <td class="card shadow-sm center">
+          <a th:href="@{/notice/read(mno = ${dto.mno}, page= ${result.page})}">
+            <img class="bd-placeholder-img card-img-top" src="../images/notice/notice5.jpg">
+          </a>
+          <div class="card-body">
+            <p class="card-text">나만의 사색공간.</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-muted">
+                <font style="vertical-align: inherit;">5</font>
+              </small>
+              <div class="btn-group">
+                <button type="button" class="button">
+                  <font>수정하기</font>
+                </button>
+                <button type="button" class="button">
+                  <font>삭제하기</font>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+
+
+        <td class="card shadow-sm center mg"><b class="bold">7</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">⭐⭐⭐⭐⭐</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">2023년 2월 8일</b>
+        </td>
+      </tr>
+
+      <tr class="col mt">
+
+        <th scope="row">
+
+          6
+
+        </th>
+
+        <td class="card shadow-sm center">
+          <a th:href="@{/notice/read(mno = ${dto.mno}, page= ${result.page})}">
+            <img class="bd-placeholder-img card-img-top" src="../images/notice/notice6.jpg">
+          </a>
+          <div class="card-body">
+            <p class="card-text">오솔길</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-muted">
+                <font style="vertical-align: inherit;">6</font>
+              </small>
+              <div class="btn-group">
+                <button type="button" class="button">
+                  <font>수정하기</font>
+                </button>
+                <button type="button" class="button">
+                  <font>삭제하기</font>
+                </button>
+              </div>
+            </div>
+          </div>
+        </td>
+
+
+        <td class="card shadow-sm center mg"><b class="bold">25</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">⭐⭐⭐⭐</b></td>
+        <td class="card shadow-sm center mg"><b class="bold">2023년 2월 7일</b>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+  <ul class="pagination h-100 justify-content-center align-items-center mt">
+
+    <li class="page-item " th:if="${result.prev}">
+      <a class="page-link" th:href="@{/notice/list(page= ${result.start -1})}" tabindex="-1">Previous</a>
+    </li>
+
+    <li th:class=" 'page-item ' + ${result.page == page?'active':''} " th:each="page: ${result.pageList}">
+      <a class="page-link" id="page-link" th:href="@{/notice/list(page = ${page})}">
+        1
+      </a>
+    </li>
+
+    <li class="page-item" th:if="${result.next}">
+      <a class="page-link" th:href="@{/notice/list(page= ${result.end + 1} )}">Next</a>
+    </li>
+  </ul>
+  <div class="footerWrap">
+    <footer class="footer-container">
+      <div class="item">
+      </div>
+      <div class="item">
+        <p>Designed by a month's life</p>
+      </div>
+      <div class="item sns">
+
+      </div>
+
+      <script type="text/javascript" src="/js/common.js"></script>
+    </footer>
+  </div>
+
+</body>
+
+</html>

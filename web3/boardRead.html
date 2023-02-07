@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="/css/modal.css">
+</head>
+
+<body>
+    <nav class="navbar1">
+        <div class="nav-container">
+            <div class="navbar-logo">
+                <a href="/"><img src="/images/main/main_logo.png" alt="서울로고" /></a>
+
+            </div>
+            <ul class="navbar-menu">
+                <li class="shop">
+                    <a href="/goods.html">굿즈샵
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                    <div class="sub-header2" onmouseover="on()" onmouseout="off()">
+                        <ul class="ul">
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemForm.html">상품
+                                    등록</a></li>
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemDtl.html">상품
+                                    관리</a></li>
+                            <li sec:authorize="isAuthenticated()" class="course"><a href="/cartList.html">장바구니</a>
+                            </li>
+                            <li sec:authorize="isAuthenticated()" class="course"><a href="/orderHist.html">구매이력</a></li>
+                            <form th:action="@{/}" method="get" class="searchForm">
+                                <input name="searchQuery" type="search" placeholder="굿즈샵 검색">
+                                <button type="submit" class="button">검색</button>
+                            </form>
+                        </ul>
+                    </div>
+                </li>
+                <li class="course" id="course">
+                    <!--  코스헤더-->
+                    <a href="/courseList.html">둘레길 코스
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                    <div class="sub-header" onmouseover="on()" onmouseout="off()">
+                        <ul class="ul">
+                            <li class="course"><a href="/course1.html">1.수락·불암산코스</a></li>
+                            <li class="course"><a href="/course1.html">2.용마·아차산코스</a></li>
+                            <li class="course"><a href="/course1.html">3.고덕·일자산코스</a></li>
+                            <li class="course"><a href="/course1.html">4.대모·우면산코스</a></li>
+                            <li class="course"><a href="/course1.html">5.관악·호암산코스</a></li>
+                            <li class="course"><a href="/course1.html">6.안양천·한강코스</a></li>
+                            <li class="course"><a href="/course1.html">7.봉산·앵봉산코스</a></li>
+                            <li class="course"><a href="/course1.html">8.북한·도봉산산코스</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li><a href="/reviewList.html">이용후기</a></li>
+                <li><a href="/boardList.html">공지사항</a></li>
+
+                <a href="join.html">
+                    <li class="icon">
+                        <span id="spin" class="icon">회원가입</span>
+                        <i class="fa-regular fa-user"></i>
+                    </li>
+                </a>
+
+            </ul>
+            <ul class="navbar-icons">
+                <li><a href="#"><i class="fa-brands fa-facebook n1"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram n1"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter n1"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="image-box">
+
+    </div>
+    <span class="h1-wrap"></span>
+    <h1 class="h1">상세 페이지</h1>
+
+    <div class="form-group">
+        <label>번호</label>
+        <input type="text" class="form-control" name="gno" th:value="${dto.gno}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>제목</label>
+        <input type="text" class="form-control" name="title" th:value="${dto.title}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>내용</label>
+        <textarea class="form-control" rows="5" name="content" readonly>[[${dto.content}]]</textarea>
+    </div>
+
+    <div class="form-group">
+        <label>작성자</label>
+        <input type="text" class="form-control" name="writer" th:value="${dto.writer}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>작성일</label>
+        <input type="text" class="form-control" name="regDate" th:value="${#temporals.format(dto.regDate,
+      'yyyy/MM/dd HH:mm:ss')}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label>수정일</label>
+        <input type="text" class="form-control" name="modDate" th:value="${#temporals.format(dto.modDate,
+      'yyyy/MM/dd HH:mm:ss')}" readonly>
+    </div>
+    <div class="button-box">
+        <a th:href="@{/board/modify(gno = ${dto.gno}, page=${requestDTO.page},
+    type = ${requestDTO.type}, keyword = ${requestDTO.keyword})}">
+            <button type="button" class="button">수정</button>
+        </a>
+
+        <a th:href="@{/board/list(page=${requestDTO.page}, type = ${requestDTO.type},
+    keyword = ${requestDTO.keyword})}">
+            <button type="button" class="button">목록</button>
+        </a>
+    </div>
+</body>
+
+</html>
