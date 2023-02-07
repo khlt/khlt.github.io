@@ -1,0 +1,104 @@
+@charset 'utf-8';
+
+a:hover {
+    display: inline;
+}
+
+.searchBox {
+    text-align: right;
+}
+
+.selectFm {
+    padding: 3px 3px 1px 3px;
+    border: 1px solid #aaa;
+    border-radius: .5em;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+}
+
+.selectFm input {
+    padding: 3px 3px 1px 3px;
+    border: 1px solid #aaa;
+}
+
+.formBox {
+    width: 1100px;
+    margin: 0 auto;
+    min-height: 625px;
+    margin-top: 100px;
+}
+
+.formTable {
+    margin: 20px;
+}
+
+.formTable th {
+    border: 1px solid rgb(200, 200, 200);
+    padding: 10px;
+    background: #3d3d4f;
+    color: white;
+}
+
+.formTable th:first-child {
+    width: 150px;
+    border: 1px solid rgb(200, 200, 200);
+}
+
+.formTable th:nth-child(2) {
+    width: 400px;
+}
+
+.formTable th:nth-child(3) {
+    width: 100px;
+}
+
+.formTable th:nth-child(4) {
+    width: 200px;
+}
+
+.formTable th:last-child {
+    width: 250px;
+}
+
+.formTable tbody td {
+    text-align: center;
+    border: 1px solid rgb(200, 200, 200);
+    padding: 10px;
+}
+
+.footArea {
+    margin-top: 77px;
+}
+
+.formTable tbody td:nth-child(2) {
+    text-decoration: underline;
+}
+
+.formTable tbody td:nth-child(2):hover {
+    color: tomato;
+}
+
+.pagination {
+    text-align: center;
+    cursor: pointer;
+}
+
+.pagination li {
+    display: inline;
+}
+
+.pagination .page-item.active {
+    padding: 3px 3px 1px 6px;
+    border: 3px solid tomato;
+    border-radius: 5px;
+}
+
+.button {
+    padding: 7px 10px 7px 10px;
+    cursor: pointer;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background: rgb(200, 200, 200);
+}

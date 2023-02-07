@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <link rel="stylesheet" href="/css/modal.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--  파비콘-->
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/main/favicon-16x16.png">
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="https://kit.fontawesome.com/f2f40eee94.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/board.css">
+</head>
+
+<body>
+    <nav class="navbar1">
+        <div class="nav-container">
+            <div class="navbar-logo">
+                <a href="/"><img src="/images/main/main_logo.png" alt="서울로고" /></a>
+
+            </div>
+            <ul class="navbar-menu">
+                <li class="shop">
+                    <a href="/goods/goods.html">굿즈샵
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                    <div class="sub-header2" onmouseover="on()" onmouseout="off()">
+                        <ul class="ul">
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a
+                                    href="../goods/itemForm.html">상품
+                                    등록</a></li>
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a
+                                    href="../goods/itemMng.html">상품
+                                    관리</a></li>
+                            <li sec:authorize="isAuthenticated()" class="course"><a
+                                    href="../goods/cartList.html">장바구니</a></li>
+                            <li sec:authorize="isAuthenticated()" class="course"><a
+                                    href="../goods/orderHist.html">구매이력</a></li>
+                            <form th:action="@{/}" method="get" class="searchForm">
+                                <input name="searchQuery" type="search" placeholder="굿즈샵 검색">
+                                <button type="submit" class="button">검색</button>
+                            </form>
+                        </ul>
+                    </div>
+                </li>
+                <li class="course" id="course">
+                    <!--  코스헤더-->
+                    <a href="/course/courseList.html">둘레길 코스
+                        <i class="fa-solid fa-caret-down"></i>
+                    </a>
+                    <div class="sub-header" onmouseover="on()" onmouseout="off()">
+                        <ul class="ul">
+                            <li class="course"><a href="../course/course1.html">1.수락·불암산코스</a></li>
+                            <li class="course"><a href="/course/course1.html">2.용마·아차산코스</a></li>
+                            <li class="course"><a href="/course/course1.html">3.고덕·일자산코스</a></li>
+                            <li class="course"><a href="/course/course1.html">4.대모·우면산코스</a></li>
+                            <li class="course"><a href="/course/course1.html">5.관악·호암산코스</a></li>
+                            <li class="course"><a href="/course/course1.html">6.안양천·한강코스</a></li>
+                            <li class="course"><a href="/course/course1.html">7.봉산·앵봉산코스</a></li>
+                            <li class="course"><a href="/course/course1.html">8.북한·도봉산산코스</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li><a href="../notice/list.html">이용후기</a></li>
+                <li><a href="/board/list.html">공지사항</a></li>
+
+                <a href="/member/join.html">
+                    <li class="icon">
+                        <span id="spin" class="icon">회원가입</span>
+                        <i class="fa-regular fa-user"></i>
+                    </li>
+                </a>
+
+            </ul>
+            <ul class="navbar-icons">
+                <li><a href="#"><i class="fa-brands fa-facebook n1"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram n1"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter n1"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="image-box">
+
+    </div>
+    <span class="h1-wrap"></span>
+    <div class="board-box">
+        <h1 class="h1">공지사항</h1>
+        <div class="board-header">
+            <div class="write">
+                <span>
+                    <a th:href="@{/board/register}">
+                        <button type="button" class="button">글 작성</button>
+                    </a>
+                </span>
+            </div>
+            <form action="/board/list" method="get" id="searchForm">
+                <div class="input-group">
+                    <input type="hidden" name="page" value="1">
+                    <div class="input-group-prepend">
+                        <select class="form-select" name="type">
+                            <option th:selected="${pageRequestDTO.type == null}">선택하세요&emsp;&emsp;&emsp;&emsp;▽
+                            </option>
+                            <option value="t" th:selected="${pageRequestDTO.type == 't'}">제목</option>
+                            <option value="c" th:selected="${pageRequestDTO.type == 'c'}">내용</option>
+                            <option value="w" th:selected="${pageRequestDTO.type == 'w'}">작성자</option>
+                            <option value="tc" th:selected="${pageRequestDTO.type == 'tc'}">제목 + 내용</option>
+                            <option value="tcw" th:selected="${pageRequestDTO.type == 'tcw'}">제목 + 내용 + 작성자</option>
+                        </select>
+                    </div>
+
+                    <input class="form-control" name="keyword" th:value="${pageRequestDTO.keyword}"
+                        placeholder="검색어를 입력하세요.">
+
+                    <div class="input-group-append" id="button-addon4">
+
+                        <button class="btn-outline-secondary btn-search" type="button">
+                            <img src="/images/board/Magnifier.png">
+                        </button>
+                        <button class="btn-clear button" type="button">초기화</button>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="col">글번호</th>
+                    <th scope="col2" class="col">제목</th>
+                    <th scope="col" class="col">작성자</th>
+                    <th scope="col" class="col">작성일</th>
+                    <!-- <th scope="col">regDate</th> -->
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr th:each="dto : ${result.dtoList}">
+                    <th scope="row" class="row">
+                        <a th:href="@{/board/read(gno = ${dto.gno}, page= ${result.page},
+                   type = ${pageRequestDTO.type}, keyword = ${pageRequestDTO.keyword})}"> <!-- 링크 처리 -->
+                            1
+                        </a>
+                    </th>
+                    <td class="rows">
+                        <a th:href="@{/board/read(gno = ${dto.gno}, page= ${result.page})}">
+                            회원가입 관련 안내
+                        </a>
+                    </td>
+                    <td class="rows">관리자</td>
+                    <td class="rows">2023 / 2 / 3</td>
+                </tr>
+
+                <tr th:each="dto : ${result.dtoList}">
+                    <th scope="row" class="row">
+                        <a th:href="@{/board/read(gno = ${dto.gno}, page= ${result.page},
+                   type = ${pageRequestDTO.type}, keyword = ${pageRequestDTO.keyword})}"> <!-- 링크 처리 -->
+                            2
+                        </a>
+                    </th>
+                    <td class="rows">
+                        <a th:href="@{/board/read(gno = ${dto.gno}, page= ${result.page})}">
+                            둘레길 보수공사 일정 안내
+                        </a>
+                    </td>
+                    <td class="rows">관리자</td>
+                    <td class="rows">2023 / 2 / 4</td>
+                </tr>
+
+                <tr th:each="dto : ${result.dtoList}">
+                    <th scope="row" class="row">
+                        <a th:href="@{/board/read(gno = ${dto.gno}, page= ${result.page},
+                   type = ${pageRequestDTO.type}, keyword = ${pageRequestDTO.keyword})}"> <!-- 링크 처리 -->
+                            3
+                        </a>
+                    </th>
+                    <td class="rows">
+                        <a th:href="@{/board/read(gno = ${dto.gno}, page= ${result.page})}">
+                            둘레길 행사 및 자원봉사자 모집 안내일정
+                        </a>
+                    </td>
+                    <td class="rows">관리자</td>
+                    <td class="rows">2023 / 2 / 7</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <ul class="pagination h-100 justify-content-center align-items-center page-ul">
+
+            <li class="page-item " th:if="${result.prev}">
+                <a class="page-link" th:href="@{/board/list(page= ${result.start -1})}" tabindex="-1">Previous</a>
+            </li>
+
+            <li class="page-item" th:each="page: ${result.pageList}">
+                <a class="page-link" th:href="@{/board/list(page = ${page} , keyword = ${pageRequestDTO.keyword} )}">
+                    1
+                </a>
+            </li>
+
+            <li class="page-item" th:if="${result.next}">
+                <a class="page-link" th:href="@{/board/list(page= ${result.end+ 1} ,
+            type = ${pageRequestDTO.type}, keyword = ${pageRequestDTO.keyword} )}">Next</a>
+            </li>
+
+        </ul>
+
+        <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">공지사항</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>완료되었습니다.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="button" data-dismiss="modal">닫기</button>
+                        <button type="button" class="button">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footerWrap">
+        <footer class="footer-container">
+            <div class="item">
+            </div>
+            <div class="item">
+                <p>Designed by a month's life</p>
+            </div>
+            <div class="item sns">
+
+            </div>
+
+            <script type="text/javascript" src="/js/common.js"></script>
+        </footer>
+    </div>
+</body>
+
+</html>
