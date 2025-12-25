@@ -1,0 +1,336 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nanum Gothic';
+    src: url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@500&display=swap");
+    font-weight: normal;
+    font-style: normal;
+}
+
+#vs {
+    widows: 100%;
+    overflow: hidden;
+}
+
+.img_box {
+    width: 500%;
+}
+
+.img_box li {
+    float: left;
+    width: 20%;
+    position: relative;
+}
+
+.img_box li a {
+    display: block;
+}
+
+.img_box li a img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.img_box .tit_box {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding-left: 40px;
+    text-shadow: 1px 1px 1px #333;
+    padding-left: 40px;
+    color: whitesmoke;
+    z-index: 30;
+}
+
+.vs_tit {
+    font-size: 42px;
+    line-height: 1.6;
+}
+
+.vs_com {
+    font-size: 37px;
+    padding-top: 40px;
+}
+
+.btn_group {
+    position: absolute;
+    bottom: 0px;
+    left: 157px;
+    z-index: 40;
+    top: 1060px;
+}
+
+.btn_group button {
+    display: block;
+    width: 80px;
+    height: 80px;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+.btn_group button i[class*='xi'] {
+    color: #fff;
+}
+
+.btn_group button:hover i[class*='xi'] {
+    cursor: pointer;
+    color: gold;
+}
+
+.grid_box {
+    clear: both;
+    width: 100%;
+}
+
+.grid_wrap {
+    clear: both;
+    width: 100%;
+}
+
+.grid_wrap li {
+    float: left;
+    height: 16.66667vw;
+    background-position: center center;
+}
+
+.grid_wrap li a {
+    display: block;
+    padding: 28px;
+}
+
+.col_tit {
+    padding-top: 31px;
+}
+
+.col_tit.w,
+.col_com.w {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.col_com {
+    font-size: 15px;
+    font-weight: 200;
+    padding-top: 20px;
+}
+
+.grid_wrap li.item1 {
+    background-color: rgb(255, 222, 222);
+}
+
+.grid_wrap li.item2 {
+    background-color: rgb(255, 187, 187);
+}
+
+.grid_wrap li.item3 {
+    background-color: rgb(255, 158, 158);
+}
+
+.grid_wrap li.item4 {
+    background-image: url("../img/watermelon-gdec6993d5_640.jpg");
+}
+
+.grid_wrap li.item5 {
+    background-image: url("../img/texture-ge30230f8a_640.jpg ");
+}
+
+.grid_wrap li.item6 {
+    background-image: url("../img/background-gc0ba397cc_640.png");
+}
+
+.arrow {
+    display: block;
+    margin-top: 50px;
+}
+
+.arrow:before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 6px;
+    transition: 0.2s;
+    border-bottom: 2px solid #333;
+    float: left;
+}
+
+.arrow:after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 8px;
+    background-image: url("../img/newsletter_arrow_black.png");
+    float: left;
+}
+
+.grid_wrap li:hover a .arrow:before {
+    width: 50px;
+}
+
+.col1 {
+    width: 8.33333%;
+}
+
+.col2 {
+    width: 16.66667%;
+}
+
+.col3 {
+    width: 25%;
+}
+
+.col4 {
+    width: 33.33333%;
+}
+
+.col5 {
+    width: 41.66666%;
+}
+
+.col6 {
+    width: 50%;
+}
+
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+
+    /* Visual Slider */
+    #vs {
+        height: auto;
+        padding-bottom: 50px;
+    }
+
+    .img_box .tit_box {
+        top: 10%;
+        left: 5%;
+        width: 90%;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .vs_tit {
+        font-size: 24px;
+        padding-top: 10px;
+    }
+
+    .vs_com {
+        font-size: 16px;
+        padding-top: 10px;
+    }
+
+    .btn_group {
+        display: none;
+    }
+
+    /* Hide buttons on mobile or adjust position */
+
+    /* Grid Box Modern Redesign */
+    .grid_box {
+        padding: 20px 10px;
+        background-color: #f8f9fa;
+        /* Light background for contrast */
+    }
+
+    .grid_wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        gap: 15px;
+    }
+
+    .grid_wrap li {
+        float: none;
+        width: 100%;
+        height: auto;
+        min-height: 180px;
+        background-position: center;
+        background-size: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Make the first item span full width */
+    .grid_wrap li:first-child {
+        grid-column: 1 / -1;
+        /* Span all columns */
+        min-height: 220px;
+        /* Slightly taller for emphasis */
+    }
+
+    .grid_wrap li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Adjust internal padding and layout */
+    .grid_wrap li a {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        /* Subtle overlay for text readability */
+        backdrop-filter: blur(0px);
+        /* Optional: add slight blur if needed, removed for performance */
+    }
+
+    .arrow {
+        margin-top: auto;
+        /* Push to bottom */
+        align-self: flex-end;
+    }
+
+    /* Font size adjustments */
+    .col_tit {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        padding-top: 0;
+    }
+
+    .col_com {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        padding-top: 5px;
+        opacity: 0.9;
+    }
+
+    /* Ensure text readability on images */
+    .col_tit.w,
+    .col_com.w {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .grid_wrap {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns even on small screens */
+        gap: 10px;
+    }
+
+    .grid_wrap li {
+        min-height: 200px;
+    }
+
+    .vs_tit {
+        font-size: 20px;
+    }
+
+    .vs_com {
+        font-size: 14px;
+    }
+}

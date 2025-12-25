@@ -1,49 +1,473 @@
 @charset "UTF-8";
-        /* 초기화 코딩 */
-         /* font-family: 'Noto Sans KR', sans-serif;  */
-        /* 내게 필요한 스타일 초기화 */
-* {margin: 0; padding: 0;}
-html, body {font-family: 'Noto Sans KR' sans-serif; width: 100%;}
-ul { list-style: none;}
-a {text-decoration: none; color: black;}
-.vs_tit { font-family: 'Noto Sans KR';}
-.vs_com { font-family: 'Nanum Gothic';}
-i[class*='xi'] { font-size: 27px; color: black;}
-i[class*='xi']:hover {  color: rgb(214, 37, 37);}
-.wrap { clear:both; width: 100%;}
+
+/* 초기화 코딩 */
+/* font-family: 'Noto Sans KR', sans-serif;  */
+/* 내게 필요한 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Ensure padding doesn't increase element width */
+}
+
+html,
+body {
+    font-family: 'Noto Sans KR' sans-serif;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.vs_tit {
+    font-family: 'Noto Sans KR';
+}
+
+.vs_com {
+    font-family: 'Nanum Gothic';
+}
+
+i[class*='xi'] {
+    font-size: 27px;
+    color: black;
+}
+
+i[class*='xi']:hover {
+    color: rgb(214, 37, 37);
+}
+
+.wrap {
+    clear: both;
+    width: 100%;
+}
 
 /* 헤더 */
-#hd { clear:both; width: 100%;   height:70px; 
-    /*   position:fixed; top: 0; left: 0; height:60px; z-index:999;
-    background-color: rgba(255,255,255,0.75);  */     }
-.hd_wrap { clear:both; width: 1280px; margin: 0 auto; }
-.logo { display:block; width: 150px; float:left; margin-top: 20px;  }
-.logo img { display:block; width: 100%; }
-#gnb { float:left;  margin-top: 15px; margin-left: 35px;}
-#gnb > ul > li { float:left; padding-left: 35px; padding-right: 20px; 
-position:relative;   }
-#gnb > ul > li > span { display:block; line-height: 36px; cursor:pointer; }
-#gnb ul li .sub { display:none; position:absolute; left:10px; top:36px; z-index:999;
-padding-left: 10px;  width: 160px; height: 200px; background-color: #eee; }
-#gnb ul li .sub li { line-height: 38px; }
-#gnb ul li .sub li:hover a { color:rgb(255, 85, 0); }
-#gnb ul li:hover .sub { display:block; }
-#gnb ul li:hover span { color:deepskyblue; }
+#hd {
+    clear: both;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    /* Ensure header has background */
+    border-bottom: 1px solid #eee;
+    /* Add separator */
+}
 
-#tnb { float:right; padding-top:10px; padding-bottom:15px; margin-top: 15px;  }
-#tnb a { font-size:0.85em; padding-left: 30px; }
-#tnb a:hover { color:deeppink; text-decoration: underline; }
-#content { clear:both; width: 100%; }
+.hd_wrap {
+    clear: both;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hd_wrap::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* Clearfix */
+
+.logo {
+    display: block;
+    width: 150px;
+    float: left;
+    margin-top: 20px;
+}
+
+.logo img {
+    display: block;
+    width: 100%;
+}
+
+#gnb {
+    float: left;
+    margin-top: 15px;
+    margin-left: 35px;
+}
+
+#gnb>ul>li {
+    float: left;
+    padding-left: 35px;
+    padding-right: 20px;
+    position: relative;
+}
+
+#gnb>ul>li>span {
+    display: block;
+    line-height: 36px;
+    cursor: pointer;
+}
+
+#gnb ul li .sub {
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 36px;
+    z-index: 999;
+    padding-left: 10px;
+    width: 160px;
+    height: 200px;
+    background-color: #eee;
+}
+
+#gnb ul li .sub li {
+    line-height: 38px;
+}
+
+#gnb ul li .sub li:hover a {
+    color: rgb(255, 85, 0);
+}
+
+#gnb ul li:hover .sub {
+    display: block;
+}
+
+#gnb ul li:hover span {
+    color: deepskyblue;
+}
+
+#tnb {
+    float: right;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    margin-top: 15px;
+}
+
+#tnb a {
+    font-size: 0.85em;
+    padding-left: 30px;
+}
+
+#tnb a:hover {
+    color: deeppink;
+    text-decoration: underline;
+}
+
+#content {
+    clear: both;
+    width: 100%;
+}
 
 /* 푸터 */
-#ft { clear:both; width: 100%; padding-top: 20px; border-top:3px solid #f1f1f1; 
-height: 100px; background-color: #fff5bc92;}
-.ft_wrap { clear:both; width: 1280px; margin: 0 auto; }
-.fnb { float:left; }
-.fnb a { display:block; float:left; margin:14px; 
-    margin-left: 0; margin-right: 28px; font-size:12px; }
-.fnb a:after { content:"|"; padding-left: 28px; }
-.fnb a:last-child::after { content:""; }
-.snb { float:right; }
-.snb ul li { float:left; margin-left: 28px; }
-.copyright { clear:both; padding-bottom: 28px; font-size:12px; }
+#ft {
+    clear: both;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid #ddd;
+    height: auto;
+    /* Allow flexible height */
+    background-color: #f9f9f9;
+    /* Clean light gray background */
+}
+
+.ft_wrap {
+    clear: both;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.fnb {
+    float: left;
+}
+
+.fnb a {
+    display: block;
+    float: left;
+    margin: 14px;
+    margin-left: 0;
+    margin-right: 28px;
+    font-size: 12px;
+}
+
+.fnb a:after {
+    content: "|";
+    padding-left: 28px;
+}
+
+.fnb a:last-child::after {
+    content: "";
+}
+
+.snb {
+    float: right;
+}
+
+.snb ul li {
+    float: left;
+    margin-left: 28px;
+}
+
+.copyright {
+    clear: both;
+    padding-bottom: 28px;
+    font-size: 12px;
+}
+
+/* Mobile Menu Toggle Button (Hidden by default) */
+.mobile_menu_btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    #hd {
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    body,
+    .wrap {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    .logo {
+        margin-left: 20px;
+    }
+
+    /* Hide Desktop Menu Initially */
+    #gnb,
+    #tnb {
+        display: none;
+    }
+
+    /* Mobile Menu Styles when shown */
+    #gnb.on {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: #fff;
+        z-index: 999;
+        border-top: 1px solid #eee;
+    }
+
+    #gnb.on>ul {
+        width: 100%;
+    }
+
+    #gnb.on>ul>li {
+        float: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #f9f9f9;
+    }
+
+    #gnb.on>ul>li>span {
+        padding: 15px 0;
+        line-height: normal;
+    }
+
+    /* Submenu on mobile */
+    #gnb.on ul li .sub {
+        position: static;
+        width: 100%;
+        background-color: #f1f1f1;
+        display: none;
+    }
+
+    #gnb.on ul li.active .sub {
+        display: block;
+    }
+
+    #gnb.on ul li:hover .sub {
+        display: none;
+    }
+
+    /* Disable hover on mobile, use click */
+
+
+    /* Make Mobile Menu Toggle Visible */
+    .mobile_menu_btn {
+        display: block;
+    }
+
+    /* Footer Responsive */
+    #ft {
+        height: auto;
+        padding: 30px 0;
+    }
+
+    .ft_wrap {
+        width: 90%;
+        padding: 0 5%;
+    }
+
+    .fnb {
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .fnb a {
+        float: none;
+        display: inline-block;
+        margin: 5px 10px;
+        font-size: 13px;
+        /* Slightly larger text */
+        color: #555;
+        padding: 5px;
+        /* Increase touch area */
+    }
+
+    .fnb a:after {
+        content: "";
+        padding: 0;
+    }
+
+    .snb {
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .snb ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .snb ul li {
+        float: none;
+        margin: 0 15px;
+    }
+
+    .snb ul li a i {
+        font-size: 32px;
+        color: #333;
+    }
+
+    .copyright {
+        text-align: center;
+        padding-bottom: 0;
+        color: #777;
+        line-height: 1.5;
+    }
+
+    /* Mobile Bottom Navigation Styles */
+    .mobile_bottom_nav {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: auto;
+        height: 60px;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        z-index: 2000;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+    }
+
+    .mobile_bottom_nav ul {
+        display: flex;
+        height: 100%;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .mobile_bottom_nav li {
+        flex: 1;
+        text-align: center;
+    }
+
+    .mobile_bottom_nav li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: #555;
+        font-size: 13px;
+        text-decoration: none;
+    }
+
+    .mobile_bottom_nav li a i {
+        font-size: 22px;
+        margin-bottom: 4px;
+        color: #333;
+    }
+
+    .mobile_bottom_nav li.active a,
+    .mobile_bottom_nav li.active a i {
+        color: #ffcc00;
+        font-weight: bold;
+    }
+
+    /* Bottom Nav Submenu Layer (Slide up) */
+    .bottom_nav_submenu {
+        display: none;
+        position: fixed;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        width: auto;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        z-index: 1500;
+        box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+    }
+
+    .bottom_nav_submenu ul {
+        padding: 10px 0;
+    }
+
+    .bottom_nav_submenu li {
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #f5f5f5;
+    }
+
+    .bottom_nav_submenu li:last-child {
+        border-bottom: none;
+    }
+
+    .bottom_nav_submenu li a {
+        display: block;
+        font-size: 14px;
+        color: #333;
+        font-weight: 500;
+    }
+
+    /* Adjust content/footer to not be hidden by bottom nav */
+    #ft {
+        padding-bottom: 80px;
+    }
+
+    /* Hide the top hamburger button if bottom nav is preferred */
+    /* .mobile_menu_btn { display: none; } */
+}
+
+/* Hide Bottom Nav on Desktop */
+@media screen and (min-width: 769px) {
+    .mobile_bottom_nav {
+        display: none;
+    }
+}

@@ -163,6 +163,7 @@
                 <a href="index.html" class="logo">
                     <img src="	https://oimg1.kbstar.com/img/ocommon/2015/kb_logo.png" alt="로고이미지입니다.">
                 </a>
+                <div class="mobile_menu_btn"><i class="xi-bars"></i></div>
                 <nav id="gnb">
                     <ul>
                         <li>
@@ -400,6 +401,68 @@
                     $(".sel").change(function () {
                         location.href = this.value;
                     });
+
+                    // Mobile Menu Logic
+                    $(window).resize(function () {
+                        var wd = $(window).width();
+                        if (wd > 768) {
+                            $("#gnb").removeClass("on");
+                            $("#gnb").css("display", "block"); // Reset display for desktop
+                        } else {
+                            if (!$("#gnb").hasClass("on")) $("#gnb").css("display", "none");
+                        }
+                    });
+
+                    // Mobile Menu Toggle
+                    $(".mobile_menu_btn").click(function () {
+                        $("#gnb").toggleClass("on");
+                        if ($("#gnb").hasClass("on")) {
+                            $("#gnb").slideDown();
+                        } else {
+                            $("#gnb").slideUp();
+                        }
+                    });
+
+                    // Mobile Submenu Toggle
+                    $("#gnb > ul > li > span").click(function () {
+                        if ($(window).width() <= 768) {
+                            $(this).parent().toggleClass("active");
+                            $(this).next(".sub").slideToggle();
+                        }
+                    });
+
+                    // Bottom Navigation Logic
+                    // Inject container if not exists
+                    if ($("#bottom_nav_submenu").length === 0) {
+                        $("body").append('<div id="bottom_nav_submenu" class="bottom_nav_submenu"><ul></ul></div>');
+                    }
+
+                    $(".mobile_bottom_nav li").click(function () {
+                        var idx = $(this).data('menu');
+                        var $menuItems = $("#gnb > ul > li").eq(idx).find(".sub").html();
+
+                        if (!$menuItems) return;
+
+                        if ($(this).hasClass("active")) {
+                            $(this).removeClass("active");
+                            $("#bottom_nav_submenu").slideUp();
+                            return;
+                        }
+
+                        $(".mobile_bottom_nav li").removeClass("active");
+                        $(this).addClass("active");
+
+                        $("#bottom_nav_submenu ul").html($menuItems);
+                        $("#bottom_nav_submenu").slideDown();
+                    });
+
+                    // Close submenu when clicking outside
+                    $("#content, #ft, #hd").click(function () {
+                        if ($(".mobile_bottom_nav li.active").length > 0) {
+                            $(".mobile_bottom_nav li").removeClass("active");
+                            $("#bottom_nav_submenu").slideUp();
+                        }
+                    });
                 });    
             </script>
         </div>
@@ -431,6 +494,17 @@
                 </p>
             </div>
         </footer>
+
+        <!-- Mobile Bottom Navigation -->
+        <div class="mobile_bottom_nav">
+            <ul>
+                <li data-menu="0"><a href="javascript:void(0)"><i class="xi-user-o"></i><span>KB와 함께</span></a></li>
+                <li data-menu="1"><a href="javascript:void(0)"><i class="xi-star-o"></i><span>특화서비스</span></a></li>
+                <li data-menu="2"><a href="javascript:void(0)"><i class="xi-bank"></i><span>금융서비스</span></a></li>
+                <li data-menu="3"><a href="javascript:void(0)"><i class="xi-forum-o"></i><span>커뮤니티</span></a></li>
+                <li data-menu="4"><a href="javascript:void(0)"><i class="xi-crown"></i><span>멤버십</span></a></li>
+            </ul>
+        </div>
     </div>
 </body>
 

@@ -1,20 +1,209 @@
 @charset "UTF-8";
-#hd {  position:fixed; top: 0; left: 0; height:70px; z-index:999;
-background-color: rgba(255, 255, 255, 0.85);   }   
-.page { clear:both; min-height:100vh; display:none; width: 100%; }
-.sub_ban { clear:both; width: 100%; position:relative; }
-.sub_ban img { display:block; width: 100%; height:auto; }
-.tit_box { position:absolute; top:0px; left: 0px; z-index:30; padding-top: 150px; 
-padding-left: 100px; color:rgb(0, 0, 0); text-shadow:1px 1px 1px rgb(255, 255, 255);}
-.sub_tit { font-size:48px; }
-.sub_com { font-size:20px; padding-top: 40px; }
-#page1 .tit_box { color: rgb(255, 255, 255); text-shadow:1px 1px 1px rgb(0, 0, 0);}
-.bread_box { clear: both; width: 100%; height: 48px; border-bottom:3px solid #f1f1f1; }
-.bread_wrap { width: 1280px; margin: 0 auto; }
-.bread { height: 48px; line-height: 48px;  }
-.bread li { float:left; padding-right: 30px; }
-.bread li:after { content:">"; padding-left: 24px; }
-.bread li:last-child::after { content: ""; }
-.page:target { display:block; }
-.page_con { clear:both; width: 100%; }
-.page_wrap { width: 1280px; margin: 0 auto; min-height:50vh; }
+
+/* Apply border-box globally for sub-pages to prevent padding overflow */
+* {
+    box-sizing: border-box;
+}
+
+#hd {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 100%;
+}
+
+.page {
+    clear: both;
+    min-height: 100vh;
+    display: none;
+    width: 100%;
+}
+
+.sub_ban {
+    clear: both;
+    width: 100%;
+    position: relative;
+}
+
+.sub_ban img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.tit_box {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 30;
+    padding-top: 150px;
+    padding-left: 100px;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+
+.sub_tit {
+    font-size: 48px;
+}
+
+.sub_com {
+    font-size: 20px;
+    padding-top: 40px;
+}
+
+#page1 .tit_box {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.bread_box {
+    clear: both;
+    width: 100%;
+    height: 48px;
+    border-bottom: 3px solid #f1f1f1;
+}
+
+.bread_wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.bread {
+    height: 48px;
+    line-height: 48px;
+}
+
+.bread li {
+    float: left;
+    padding-right: 30px;
+}
+
+.bread li:after {
+    content: ">";
+    padding-left: 24px;
+}
+
+.bread li:last-child::after {
+    content: "";
+}
+
+.page:target {
+    display: block;
+}
+
+.page_con {
+    clear: both;
+    width: 100%;
+}
+
+.page_wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 50vh;
+}
+
+/* Responsive Styles for Sub Pages */
+@media screen and (max-width: 980px) {
+    .wrapper_2019 .mainVisualArea {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .wrapper_2019 {
+        height: auto !important;
+        margin-top: 0 !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #hd {
+        position: relative;
+        height: auto;
+    }
+
+    body,
+    .wrap {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    /* Allow header to expand for menu */
+
+    .tit_box {
+        padding-top: 50px;
+        padding-left: 20px;
+        width: 90%;
+        text-align: center;
+    }
+
+    .sub_tit {
+        font-size: 28px;
+    }
+
+    .sub_com {
+        font-size: 16px;
+        padding-top: 10px;
+    }
+
+    .bread_wrap {
+        padding: 0 10px;
+    }
+
+    .bread li {
+        padding-right: 10px;
+        font-size: 12px;
+    }
+
+    .bread li:after {
+        padding-left: 10px;
+    }
+
+    .page_wrap {
+        padding: 10px;
+    }
+
+    /* Global Fix for House Elements causing overflow */
+    [id^="house"],
+    #house,
+    #house1,
+    #house2,
+    #house3,
+    #house4,
+    #house5 {
+        padding: 50px 20px !important;
+        text-align: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    [id^="house"] img,
+    #house img,
+    #house1 img,
+    #house2 img,
+    #house3 img,
+    #house4 img,
+    #house5 img {
+        width: 80% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        display: block !important;
+        height: auto !important;
+    }
+
+    /* Sub-page specific fix for Bottom Nav Width */
+    .mobile_bottom_nav,
+    .bottom_nav_submenu {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        /* Force full width stretch */
+        box-sizing: border-box !important;
+        margin: 0 !important;
+    }
+}

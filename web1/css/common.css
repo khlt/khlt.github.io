@@ -60,8 +60,10 @@ a {
 
 .hd_wrap {
     clear: both;
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
     margin: 0 auto;
+    position: relative;
 }
 
 .logo {
@@ -69,6 +71,7 @@ a {
     width: 250px;
     float: left;
     margin-top: 15px;
+    margin-left: 20px;
 }
 
 .logo img {
@@ -136,6 +139,7 @@ a {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 20px;
+    margin-right: 20px;
 }
 
 #tnb a {
@@ -149,6 +153,17 @@ a {
     text-decoration: underline;
 }
 
+/* 모바일 메뉴 버튼 (기본 숨김) */
+.m_btn {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
 #content {
     clear: both;
     width: 100%;
@@ -160,14 +175,18 @@ a {
     width: 100%;
     padding-top: 20px;
     border-top: 4px solid #cec9bd;
-    height: 100px;
+    height: auto;
+    padding-bottom: 20px;
     background-color: rgb(237, 232, 225);
 }
 
 .ft_wrap {
     clear: both;
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
     margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .fnb {
@@ -205,4 +224,152 @@ a {
     clear: both;
     padding-bottom: 28px;
     font-size: 12px;
+}
+
+/* 반응형 스타일 */
+@media screen and (max-width: 1024px) {
+    #gnb {
+        display: none;
+    }
+
+    #tnb {
+        display: none;
+    }
+
+    .m_btn {
+        display: block;
+    }
+
+    /* 모바일 메뉴 스타일 (필요시 추가 구현) */
+    .mobile_nav {
+        display: none;
+        /* JS로 제어 */
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 998;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .mobile_nav>ul>li {
+        border-bottom: 1px solid #eee;
+    }
+
+    .mobile_nav>ul>li>span {
+        display: block;
+        padding: 15px 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .mobile_nav .sub {
+        display: none;
+        background: #f9f9f9;
+        padding: 10px 0;
+    }
+
+    .mobile_nav .sub li a {
+        display: block;
+        padding: 10px 40px;
+        color: #666;
+    }
+
+    .fnb,
+    .snb {
+        float: none;
+        text-align: center;
+    }
+
+    .fnb a {
+        float: none;
+        display: inline-block;
+        margin: 5px 10px;
+    }
+
+    .fnb a:after {
+        display: none;
+    }
+
+    .snb ul {
+        display: inline-block;
+        padding: 10px 0;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    /* Index Page Responsive Styles */
+    .vs_tit {
+        font-size: 30px;
+    }
+
+    .vs_com {
+        font-size: 16px;
+        padding-top: 20px;
+    }
+
+    .img_box .tit_box {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .btn_group {
+        left: 50%;
+        transform: translateX(-50%);
+        top: auto;
+        bottom: 20px;
+    }
+
+    .btn_group button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .grid_wrap li,
+    .grid_wrap li.item4,
+    .grid_wrap li.item5,
+    .grid_wrap li.item6,
+    .col1,
+    .col2,
+    .col3,
+    .col4,
+    .col5,
+    .col6 {
+        width: 50%;
+        height: auto;
+        min-height: 250px;
+    }
+
+    .grid_wrap li a {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .grid_wrap li,
+    .grid_wrap li.item4,
+    .grid_wrap li.item5,
+    .grid_wrap li.item6,
+    .col1,
+    .col2,
+    .col3,
+    .col4,
+    .col5,
+    .col6 {
+        width: 100%;
+        border-right: none;
+        border-top: 1px solid #ddd;
+    }
+
+    .hd_wrap {
+        height: 80px;
+    }
 }

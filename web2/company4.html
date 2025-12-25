@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,8 +23,10 @@
     <!-- 웹 폰트 모듈 연결 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">  
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@500&display=swap"
+        rel="stylesheet">
 
     <style>
         @font-face {
@@ -32,6 +35,7 @@
             font-weight: normal;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'Nanum Gothic';
             src: url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@500&display=swap");
@@ -39,7 +43,7 @@
             font-style: normal;
         }
     </style>
-        <!-- 웹 아이콘 연결 -->
+    <!-- 웹 아이콘 연결 -->
     <!-- XEIcon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!-- 스타일 초기화 모듈 연결 -->
@@ -49,20 +53,46 @@
     <link rel="stylesheet" href="./css/sub_common.css">
     <!-- <link rel="stylesheet" href="./css/normalize.css"> -->
     <style>
-        .cub_ban img { clear:both; width:100%;}
-        .page{ clear: both; min-height: 100vh; display:none; }
-        .page:target{ display: block;}
+        .cub_ban img {
+            clear: both;
+            width: 100%;
+        }
 
-        #page1 .page_wrap { background-color: rgb(255, 251, 232); }
-        #page2 .page_wrap { background-color:rgb(248, 255, 246) }
-        #page3 .page_wrap { background-color:rgb(254, 245, 255) }
-        #page4 .page_wrap { background-color:rgb(255, 241, 240); }
-        #page5 .page_wrap { background-color:rgb(247, 255, 247); }
+        .page {
+            clear: both;
+            min-height: 100vh;
+            display: none;
+        }
+
+        .page:target {
+            display: block;
+        }
+
+        #page1 .page_wrap {
+            background-color: rgb(255, 251, 232);
+        }
+
+        #page2 .page_wrap {
+            background-color: rgb(248, 255, 246)
+        }
+
+        #page3 .page_wrap {
+            background-color: rgb(254, 245, 255)
+        }
+
+        #page4 .page_wrap {
+            background-color: rgb(255, 241, 240);
+        }
+
+        #page5 .page_wrap {
+            background-color: rgb(247, 255, 247);
+        }
     </style>
     <style>
-    
+
     </style>
 </head>
+
 <body>
     <div class="wrap">
         <header id="hd">
@@ -71,6 +101,7 @@
                 <a href="index.html" class="logo">
                     <img src="	https://oimg1.kbstar.com/img/ocommon/2015/kb_logo.png" alt="로고이미지입니다.">
                 </a>
+                <div class="mobile_menu_btn"><i class="xi-bars"></i></div>
                 <nav id="gnb">
                     <ul>
                         <li>
@@ -137,7 +168,7 @@
                             <h2 class="sub_tit">KB스타클럽</h2>
                             <p class="sub_com">
                                 KB국민은행의 금융서비스에서 이벤트까지,</p>
-                                <br>
+                            <br>
                             <p>KB스타클럽 고객만을 위한 우대서비스로 모시겠습니다.</p><br>
                         </div>
                     </figure>
@@ -150,10 +181,10 @@
                                 <li class="item2">멤버십서비스</li>
                                 <li class="item3">
                                     <select name="sel" id="sel1" class="sel">
-                                        <option value="company4.html#page1"selected>KB고객우대제도</option>
+                                        <option value="company4.html#page1" selected>KB고객우대제도</option>
                                         <option value="company4.html#page2">GOLD&WISE</option>
                                     </select>
-                                
+
                                 </li>
                             </ul>
                         </div>
@@ -182,7 +213,7 @@
                                 <li class="item3">
                                     <select name="sel" id="sel2" class="sel">
                                         <option value="company4.html#page1">KB고객우대제도</option>
-                                        <option value="company4.html#page2"selected>GOLD&WISE</option>
+                                        <option value="company4.html#page2" selected>GOLD&WISE</option>
                                     </select>
                                 </li>
                             </ul>
@@ -195,9 +226,70 @@
                 </section>
             </div>
             <script>
-                $(document).ready(function(){
-                    $(".sel").change(function(){
+                $(document).ready(function () {
+                    $(".sel").change(function () {
                         location.href = this.value;
+                    });
+                    // Mobile Menu Logic
+                    $(window).resize(function () {
+                        var wd = $(window).width();
+                        if (wd > 768) {
+                            $("#gnb").removeClass("on");
+                            $("#gnb").css("display", "block"); // Reset display for desktop
+                        } else {
+                            if (!$("#gnb").hasClass("on")) $("#gnb").css("display", "none");
+                        }
+                    });
+
+                    // Mobile Menu Toggle
+                    $(".mobile_menu_btn").click(function () {
+                        $("#gnb").toggleClass("on");
+                        if ($("#gnb").hasClass("on")) {
+                            $("#gnb").slideDown();
+                        } else {
+                            $("#gnb").slideUp();
+                        }
+                    });
+
+                    // Mobile Submenu Toggle
+                    $("#gnb > ul > li > span").click(function () {
+                        if ($(window).width() <= 768) {
+                            $(this).parent().toggleClass("active");
+                            $(this).next(".sub").slideToggle();
+                        }
+                    });
+
+                    // Bottom Navigation Logic
+                    // Inject container if not exists
+                    if ($("#bottom_nav_submenu").length === 0) {
+                        $("body").append('<div id="bottom_nav_submenu" class="bottom_nav_submenu"><ul></ul></div>');
+                    }
+
+                    $(".mobile_bottom_nav li").click(function () {
+                        var idx = $(this).data('menu');
+                        var $menuItems = $("#gnb > ul > li").eq(idx).find(".sub").html();
+
+                        if (!$menuItems) return;
+
+                        if ($(this).hasClass("active")) {
+                            $(this).removeClass("active");
+                            $("#bottom_nav_submenu").slideUp();
+                            return;
+                        }
+
+                        $(".mobile_bottom_nav li").removeClass("active");
+                        $(this).addClass("active");
+
+                        $("#bottom_nav_submenu ul").html($menuItems);
+                        $("#bottom_nav_submenu").slideDown();
+                    });
+
+                    // Close submenu when clicking outside
+                    $("#content, #ft, #hd").click(function () {
+                        if ($(".mobile_bottom_nav li.active").length > 0) {
+                            $(".mobile_bottom_nav li").removeClass("active");
+                            $("#bottom_nav_submenu").slideUp();
+                        }
                     });
                 });    
             </script>
@@ -230,6 +322,18 @@
                 </p>
             </div>
         </footer>
+
+        <!-- Mobile Bottom Navigation -->
+        <div class="mobile_bottom_nav">
+            <ul>
+                <li data-menu="0"><a href="javascript:void(0)"><i class="xi-user-o"></i><span>KB와 함께</span></a></li>
+                <li data-menu="1"><a href="javascript:void(0)"><i class="xi-star-o"></i><span>특화서비스</span></a></li>
+                <li data-menu="2"><a href="javascript:void(0)"><i class="xi-bank"></i><span>금융서비스</span></a></li>
+                <li data-menu="3"><a href="javascript:void(0)"><i class="xi-forum-o"></i><span>커뮤니티</span></a></li>
+                <li data-menu="4"><a href="javascript:void(0)"><i class="xi-crown"></i><span>멤버십</span></a></li>
+            </ul>
+        </div>
     </div>
 </body>
+
 </html>
