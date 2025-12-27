@@ -10,10 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f2f40eee94.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="css/footer.css">
     <script src="https://kit.fontawesome.com/f2f40eee94.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/courseList.css">
-    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="css/courseList.css">
+    <link rel="stylesheet" href="css/header.css">
 </head>
 
 <body>
@@ -24,23 +24,23 @@
     <nav class="navbar1">
         <div class="nav-container">
             <div class="navbar-logo">
-                <a href="/"><img src="/images/main/main_logo.png" alt="서울로고" /></a>
+                <a href="index.html"><img src="images/main/main_logo.png" alt="서울로고" /></a>
 
             </div>
             <ul class="navbar-menu">
                 <li class="shop">
-                    <a href="/goods.html">굿즈샵
+                    <a href="goods.html">굿즈샵
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <div class="sub-header2" onmouseover="on()" onmouseout="off()">
                         <ul class="ul">
-                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemForm.html">상품
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="itemForm.html">상품
                                     등록</a></li>
-                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="/itemDtl.html">상품
+                            <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="course"><a href="itemDtl.html">상품
                                     관리</a></li>
-                            <li sec:authorize="isAuthenticated()" class="course"><a href="/cartList.html">장바구니</a>
+                            <li sec:authorize="isAuthenticated()" class="course"><a href="cartList.html">장바구니</a>
                             </li>
-                            <li sec:authorize="isAuthenticated()" class="course"><a href="/orderHist.html">구매이력</a></li>
+                            <li sec:authorize="isAuthenticated()" class="course"><a href="orderHist.html">구매이력</a></li>
                             <form th:action="@{/}" method="get" class="searchForm">
                                 <input name="searchQuery" type="search" placeholder="굿즈샵 검색">
                                 <button type="submit" class="button">검색</button>
@@ -50,26 +50,26 @@
                 </li>
                 <li class="course" id="course">
                     <!--  코스헤더-->
-                    <a href="/courseList.html">둘레길 코스
+                    <a href="courseList.html">둘레길 코스
                         <i class="fa-solid fa-caret-down"></i>
                     </a>
                     <div class="sub-header" onmouseover="on()" onmouseout="off()">
                         <ul class="ul">
-                            <li class="course"><a href="/course1.html">1.수락·불암산코스</a></li>
-                            <li class="course"><a href="/course1.html">2.용마·아차산코스</a></li>
-                            <li class="course"><a href="/course1.html">3.고덕·일자산코스</a></li>
-                            <li class="course"><a href="/course1.html">4.대모·우면산코스</a></li>
-                            <li class="course"><a href="/course1.html">5.관악·호암산코스</a></li>
-                            <li class="course"><a href="/course1.html">6.안양천·한강코스</a></li>
-                            <li class="course"><a href="/course1.html">7.봉산·앵봉산코스</a></li>
-                            <li class="course"><a href="/course1.html">8.북한·도봉산산코스</a></li>
+                            <li class="course"><a href="course1.html">1.수락·불암산코스</a></li>
+                            <li class="course"><a href="course1.html">2.용마·아차산코스</a></li>
+                            <li class="course"><a href="course1.html">3.고덕·일자산코스</a></li>
+                            <li class="course"><a href="course1.html">4.대모·우면산코스</a></li>
+                            <li class="course"><a href="course1.html">5.관악·호암산코스</a></li>
+                            <li class="course"><a href="course1.html">6.안양천·한강코스</a></li>
+                            <li class="course"><a href="course1.html">7.봉산·앵봉산코스</a></li>
+                            <li class="course"><a href="course1.html">8.북한·도봉산산코스</a></li>
                         </ul>
                     </div>
                 </li>
 
 
-                <li><a href="/reviewList.html">이용후기</a></li>
-                <li><a href="/boardList.html">공지사항</a></li>
+                <li><a href="reviewList.html">이용후기</a></li>
+                <li><a href="boardList.html">공지사항</a></li>
 
                 <a href="join.html">
                     <li class="icon">
@@ -91,7 +91,7 @@
     <div class="course-container">
         <div class="img-link">
             <a class="img-button" href="/course/course1.html">
-                <img src="/images/courseList/bulam.jpg">
+                <img src="images/courseList/bulam.jpg">
             </a>
             <a href="/course1">
                 <div class="img-link-text">1코스-수락·불암산코스</div>
@@ -102,7 +102,7 @@
     <div class="course-container">
         <div class="img-link">
             <a class="img-button" href="#">
-                <img src="/images/courseList/acha.jpg">
+                <img src="images/courseList/acha.jpg">
             </a>
             <a href="#">
                 <div class="img-link-text">2코스-용마·아차산코스</div>
@@ -113,7 +113,7 @@
     <div class="course-container">
         <div class="img-link">
             <a class="img-button" href="#">
-                <img src="/images/courseList/ilja.jpg">
+                <img src="images/courseList/ilja.jpg">
             </a>
             <a href="#">
                 <div class="img-link-text">3코스-고덕·일자산코스</div>
@@ -124,7 +124,7 @@
     <div class="course-container">
         <div class="img-link">
             <a class="img-button" href="#">
-                <img src="/images/courseList/woomyeun.jpg">
+                <img src="images/courseList/woomyeun.jpg">
             </a>
             <a href="#">
                 <div class="img-link-text">4코스-대모·우면산코스</div>
@@ -135,7 +135,7 @@
     <div class="course-container">
         <div class="img-link">
             <a class="img-button" href="#">
-                <img src="/images/courseList/hoam.jpg">
+                <img src="images/courseList/hoam.jpg">
             </a>
             <a href="#">
                 <div class="img-link-text">5코스-관악·호암산코스</div>
@@ -146,7 +146,7 @@
     <div class="course-container">
         <div class="img-link">
             <a class="img-button" href="#">
-                <img src="/images/courseList/han.jpg">
+                <img src="images/courseList/han.jpg">
             </a>
             <a href="#">
                 <div class="img-link-text">6코스-안양천·한강코스</div>
@@ -157,7 +157,7 @@
     <div class="course-container">
         <div class="img-link">
             <a class="img-button" href="#">
-                <img src="/images/courseList/aangbo.jpg">
+                <img src="images/courseList/aangbo.jpg">
             </a>
             <a href="#">
                 <div class="img-link-text">7코스-봉산·앵봉산코스</div>
@@ -168,7 +168,7 @@
     <div class="course-container">
         <div class="img-link">
             <a class="img-button" href="#">
-                <img src="/images/courseList/dobong.jpg">
+                <img src="images/courseList/dobong.jpg">
             </a>
             <a href="#">
                 <div class="img-link-text">8코스-북한·도봉산산코스</div>
@@ -188,7 +188,7 @@
 
         </div>
 
-        <script type="text/javascript" src="/js/common.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
     </footer>
 </body>
 
